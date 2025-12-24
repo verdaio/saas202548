@@ -1,0 +1,79 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Video assets cache
+*.cache
+.cache/
+cache/
+
+# Exports and renders (large video files)
+exports/
+renders/
+output/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.webm
+
+# Raw footage (should be stored externally)
+raw/
+footage/
+
+# Audio files (large)
+*.wav
+*.aiff
+*.flac
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node.js (if tools added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if tools added later)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+.pytest_cache/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Logs
+*.log
+logs/
+
+# Archive files (usually not needed in repo)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
