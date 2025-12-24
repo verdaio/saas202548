@@ -14,6 +14,42 @@ Each entry includes:
 
 ---
 
+## [v0.2.0] - 2025-12-24
+
+### Agent
+Claude Code (Claude Opus 4.5)
+
+### Prompt Reference
+User direction: "Start with Quiet Business Machines..."
+
+### Changes
+- Defined channel positioning: "Quiet Business Machines"
+  - Calm, sleepy documentaries about invisible business systems
+  - Three content pillars: Systems Explained, Quiet Histories, Behind the Machines
+  - "Sleepy" tone guidelines for late-night learning aesthetic
+- Planned first 6 video episodes with detailed briefs:
+  - EP001: How UPS Turned Routing Into a Machine
+  - EP002: The Quiet Rules Behind Credit Card Payments
+  - EP003: Why Toyota's System Was Hard to Copy
+  - EP004: The Rise and Fall of Blackberry (Slow Documentary)
+  - EP005: How Big Retail Inventory Actually Works
+  - EP006: The History of the Barcode (and Why It Won)
+- Updated tracking files with episode details, research needs, visual approaches
+- Updated README, STATUS, and CHANGELOG to reflect positioning
+
+### Verification
+- CHANNEL-BRIEF.md updated with full positioning
+- tracking/ideas/ideas.md contains 6 approved ideas
+- tracking/episodes/episodes.md contains 6 episode briefs
+- STATUS.md shows positioning and topics as decided
+
+### Notes
+- Topics selected for low controversy and infinite series potential
+- Recommend starting with EP001 (UPS) or EP006 (Barcode) for accessible hooks
+- "Slow Documentary" format introduced with EP004 (Blackberry)
+
+---
+
 ## [v0.1.0] - 2025-12-24
 
 ### Agent

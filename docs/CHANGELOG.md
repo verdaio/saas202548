@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.2.0] - 2025-12-24
+
+### Added
+- Channel positioning: "Quiet Business Machines" - calm, sleepy documentaries about invisible business systems
+- First 6 video episodes planned:
+  - EP001: How UPS Turned Routing Into a Machine
+  - EP002: The Quiet Rules Behind Credit Card Payments
+  - EP003: Why Toyota's System Was Hard to Copy
+  - EP004: The Rise and Fall of Blackberry (Slow Documentary)
+  - EP005: How Big Retail Inventory Actually Works
+  - EP006: The History of the Barcode (and Why It Won)
+- Detailed episode briefs with research needed, key points, and visual approach
+- Content pillars defined: Systems Explained, Quiet Histories, Behind the Machines
+- "Sleepy" tone guidelines and voice characteristics
+
+### Changed
+- Updated README.md with channel name and positioning
+- Updated STATUS.md with decisions made
+- Updated CHANNEL-BRIEF.md with full positioning details
+
+---
+
 ## [v0.1.0] - 2025-12-24
 
 ### Added

@@ -5,17 +5,20 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | Scaffolded |
-| **Next Milestone** | First 3 videos published |
+| **Current Stage** | Content Planning |
+| **Next Milestone** | First video published |
 | **Last Updated** | 2025-12-24 |
 | **Scaffold Version** | v0.1.0 |
+| **Channel Name** | Quiet Business Machines |
+| **Episodes Planned** | 6 |
 
 ### Stage Progression
 
 - [x] Scaffold created
-- [ ] Channel positioning defined
-- [ ] First 3 video topics selected
+- [x] Channel positioning defined (Quiet Business Machines)
+- [x] First 6 video topics selected
 - [ ] Asset storage configured
+- [ ] First video scripted
 - [ ] First video published
 - [ ] First 3 videos published
 - [ ] First month analytics reviewed
@@ -121,8 +124,18 @@ C:\devop\saas202548\tracking\ideas\ideas.md
 
 ---
 
+## Decisions Made
+
+1. **Channel Positioning**: "Quiet Business Machines" - calm, sleepy documentaries about invisible business systems
+2. **First 6 Video Topics**:
+   - EP001: How UPS Turned Routing Into a Machine
+   - EP002: The Quiet Rules Behind Credit Card Payments
+   - EP003: Why Toyota's System Was Hard to Copy
+   - EP004: The Rise and Fall of Blackberry (Slow Documentary)
+   - EP005: How Big Retail Inventory Actually Works
+   - EP006: The History of the Barcode (and Why It Won)
+
 ## Decisions Pending
 
-1. **Channel Positioning**: Define target audience and content focus
-2. **First 3 Video Topics**: Select initial content to produce
-3. **Asset Storage Location**: Choose local drive or cloud storage path
+1. **Asset Storage Location**: Choose local drive or cloud storage path
+2. **First Episode to Produce**: Recommend EP001 (UPS) or EP006 (Barcode)

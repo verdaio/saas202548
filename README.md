@@ -1,6 +1,8 @@
-# saas202548 — YouTube Video Channel
+# Quiet Business Machines
 
-A content operations repository for managing a YouTube video channel with deterministic workflows, governance, and documentation.
+> *The systems behind the systems*
+
+A content operations repository for the **Quiet Business Machines** YouTube channel — calm, sleepy documentaries about the invisible systems, logistics, and operational mechanics behind how businesses actually work.
 
 ## What This Repo Is
 
@@ -14,14 +16,19 @@ All large video files (raw footage, exports, project files) are stored externall
 
 ## Content Positioning
 
-**Intended Audience**: [TBD - to be defined by channel owner]
+**Intended Audience**: Curious viewers who appreciate depth over drama
 
-**Content Focus**: [TBD - to be defined by channel owner]
+**Content Focus**: Invisible business systems, logistics, operations, and quiet corporate histories
+
+**Content Pillars**:
+1. **Systems Explained**: How invisible business infrastructure actually works
+2. **Quiet Histories**: Calm documentaries about business and technology evolution
+3. **Behind the Machines**: Deep dives into specific operational mechanics
 
 **Content Principles**:
-- Advertiser-friendly (no shock content, controversy bait, or policy violations)
-- Educational and/or entertaining value
-- Honest, no misleading claims
+- Calm, "sleepy" tone — think late-night learning
+- Advertiser-friendly (no controversy, drama, or policy violations)
+- Educational with gentle wonder
 - Properly attributed sources and licensed assets
 
 ## Repository Layout
