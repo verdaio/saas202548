@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.1] - 2025-12-24
+
+### Added
+- Selected logo asset pack for Case Study Library brand
+  - Path: `docs/branding/assets/logo/selected/v1/`
+  - Includes: source files, PNG exports (full/icon/wordmark), favicon, usage docs
+- Brand documentation: `docs/branding/BRAND.yml`, `docs/branding/BRAND.md`
+- Assets README: `docs/branding/assets/README.md`
+
+### Changed
+- Updated README.md with brand documentation links
+
+---
+
 ## [v0.3.0] - 2025-12-24
 
 ### Added

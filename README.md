@@ -103,7 +103,9 @@ Full verification evidence is in [`STATUS.md`](STATUS.md) under "Verification Ev
 - [`docs/content/CHANNEL-BRIEF.md`](docs/content/CHANNEL-BRIEF.md) - Channel positioning
 - [`docs/content/CONTENT-PIPELINE.md`](docs/content/CONTENT-PIPELINE.md) - Full workflow
 - [`docs/legal/POLICY-GUARDRAILS.md`](docs/legal/POLICY-GUARDRAILS.md) - Compliance rules
+- [`docs/branding/BRAND.md`](docs/branding/BRAND.md) - Brand guidelines and assets
 
 ## Docs
 
 - [`docs/systemarium/systemarium-master-plan-design-workflow-v1.md`](docs/systemarium/systemarium-master-plan-design-workflow-v1.md) - Systemarium master plan, design, and workflow (v1)
+- [`docs/branding/assets/logo/selected/v1/docs/USAGE.md`](docs/branding/assets/logo/selected/v1/docs/USAGE.md) - Logo usage guidelines
