@@ -8,7 +8,7 @@
 | **Current Stage** | EP001 Scripting |
 | **Next Milestone** | EP001 Published |
 | **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.3.1 |
+| **Scaffold Version** | v0.3.2 |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
 | **Asset Storage** | Google Drive |
@@ -27,6 +27,9 @@
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-24**: Brand baseline established
+  - Brand name confirmed: **Case Study Library** (visual identity)
+  - Evidence report: `docs/ops/reports/saas202548-brand-name-case-study-library-2025-12-24.md`
 - **2025-12-24**: Logo asset pack added for Case Study Library brand
   - Path: `docs/branding/assets/logo/selected/v1/`
   - Brand docs: `docs/branding/BRAND.yml`, `docs/branding/BRAND.md`
