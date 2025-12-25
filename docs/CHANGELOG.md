@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.7] - 2025-12-25
+
+### Added
+- Production tooling baseline and decision frameworks
+  - `docs/production/TOOLING-BASELINE-v1.md` - 6-stage pipeline with defaults, fallbacks, and decision gates
+  - `content/production/TOOLS-REGISTRY-v1.yml` - Machine-readable tooling registry
+  - `docs/production/AI-VOICE-DECISION-v1.md` - TTS evaluation framework with 10-point rubric
+  - `docs/production/LICENSE-VERIFICATION-CHECKLIST-v1.md` - License proof capture procedure
+  - `content/production/renders/` - Folder for local render outputs (.gitkeep)
+  - `content/production/licenses/` - Folder for licensing proof (.gitkeep)
+
+### Notes
+- Evidence-based decisions from EP001 production pack (PR #12)
+- Graphics tools formalized: PowerPoint/Keynote, Canva, Google Slides (MVP tier)
+- Stock sources formalized: Pexels, Pixabay, Unsplash (free); Storyblocks, Artgrid (paid)
+- Music sources formalized: Epidemic Sound, YouTube Audio Library, Freesound.org
+- **Blockers identified:** AI voice/TTS tool and video editor not yet chosen
+- **Licensing gaps:** Canva, Epidemic Sound, stock footage require verification
+- Ready for EP001 tool testing and licensing verification
+
+---
+
 ## [v0.3.5] - 2025-12-25
 
 ### Added

@@ -14,6 +14,66 @@ Each entry includes:
 
 ---
 
+## [v0.3.7] - 2025-12-25
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-production-tooling-discovery-and-baseline-v1.md`
+
+### Changes
+- Discovered and formalized production tooling baseline for EP001
+- Evidence discovery via Grep search across repo:
+  - Found PowerPoint/Keynote, Canva, Google Slides references in graphics-v2.md
+  - Found Pexels, Pixabay, Unsplash, Storyblocks, Artgrid references in broll-v2.md
+  - Found Epidemic Sound, YouTube Audio Library, Freesound.org references in asset-manifest
+  - Identified gaps: AI voice/TTS and video editor not yet chosen
+- Created `docs/production/TOOLING-BASELINE-v1.md`:
+  - 6-stage pipeline (Research, Structure, Script, AI Voice, Visuals, Edit/Publish)
+  - Evidence notes referencing specific repo files and commits
+  - Default tools + fallbacks for each stage
+  - Decision gates: what can start now vs blocked
+  - "Open decisions" section with explicit blockers
+- Created `content/production/TOOLS-REGISTRY-v1.yml`:
+  - Machine-readable tool registry with chosen defaults
+  - Licensing verification status (mostly "incomplete")
+  - Candidates under evaluation (TTS, video editor)
+  - Evidence references (file paths + commit SHAs)
+- Created `docs/production/AI-VOICE-DECISION-v1.md`:
+  - 3 evaluation lanes (built-in editor voices, editor pro voices, dedicated TTS)
+  - 10-point rubric (quality, licensing, cost, workflow, etc.)
+  - Test plan for evaluating candidates
+  - Licensing verification checklist per tool
+  - Decision template to fill after testing
+- Created `docs/production/LICENSE-VERIFICATION-CHECKLIST-v1.md`:
+  - Proof requirements (screenshots, receipts, summaries)
+  - Folder structure for `content/production/licenses/`
+  - License summary template (Markdown)
+  - Per-asset verification checklist
+  - Music fingerprint risk guidance (practical, not legal advice)
+- Created folder structure:
+  - `content/production/renders/` (.gitkeep)
+  - `content/production/licenses/` (.gitkeep)
+- Updated docs/CHANGELOG.md, AI-UPGRADES-LOG.md, STATUS.md
+
+### Verification
+- All 4 deliverable files created: PASS
+- No secrets added: PASS (all placeholders + documentation)
+- TOOLS-REGISTRY-v1.yml is valid YAML: PASS (basic parse check)
+- Folders created with .gitkeep: PASS
+- Documentation files updated: PASS
+
+### Notes
+- Evidence-first approach: all tool claims reference specific repo files
+- Two blockers identified: AI voice/TTS and video editor must be chosen before EP001 voice/edit
+- Licensing gaps documented: Canva, Epidemic Sound, stock footage need verification
+- Baseline is EP001-ready for stages 1-3 (Research, Structure, Script) and stage 5a-c (Graphics, Stock, Music sourcing)
+- Stages 4 (Voice) and 6 (Edit) blocked until tool decisions made
+- Next actions: test TTS candidates, choose video editor, verify licenses
+
+---
+
 ## [v0.3.5] - 2025-12-25
 
 ### Agent
