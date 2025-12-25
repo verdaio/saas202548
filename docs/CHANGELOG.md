@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.2] - 2025-12-24
+
+### Added
+- Brand name decision evidence report
+
+### Notes
+- Canonical brand name confirmed: Case Study Library
+- PR #6 (brand assets) verified and documented
+- See `docs/ops/reports/saas202548-brand-name-case-study-library-2025-12-24.md`
+
+---
+
 ## [v0.3.1] - 2025-12-24
 
 ### Added

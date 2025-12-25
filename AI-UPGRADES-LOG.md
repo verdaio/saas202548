@@ -14,6 +14,31 @@ Each entry includes:
 
 ---
 
+## [v0.3.2] - 2025-12-24
+
+### Agent
+Claude Code (Claude Opus 4.5)
+
+### Prompt Reference
+`cc-saas202548-brand-name-apply-case-study-library-v1.md`
+
+### Changes
+- Confirmed canonical brand name: **Case Study Library**
+- Verified PR #6 merge and all branding assets
+- Created evidence report: `docs/ops/reports/saas202548-brand-name-case-study-library-2025-12-24.md`
+
+### Verification
+- `BRAND.yml` contains brand_name: "Case Study Library": PASS
+- `BRAND.md` contains "Case Study Library": PASS
+- All logo asset paths verified: PASS (5/5 checks)
+
+### Notes
+- "Case Study Library" = visual brand identity (logo, assets)
+- "Quiet Business Machines" = channel name/content positioning
+- Historical records preserved as-is
+
+---
+
 ## [v0.3.1] - 2025-12-24
 
 ### Agent
