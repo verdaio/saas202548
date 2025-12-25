@@ -8,7 +8,8 @@
 | **Current Stage** | EP001 Scripting |
 | **Next Milestone** | EP001 Published |
 | **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.3.2 |
+| **Scaffold Version** | v0.3.3 |
+| **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
 | **Asset Storage** | Google Drive |
@@ -27,6 +28,10 @@
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-24**: Brand vs channel naming split clarified
+  - Brand (visual identity): **Case Study Library**
+  - Channel (content positioning): **Quiet Business Machines**
+  - Evidence report: `docs/ops/reports/saas202548-branding-naming-split-2025-12-24.md`
 - **2025-12-24**: Brand baseline established
   - Brand name confirmed: **Case Study Library** (visual identity)
   - Evidence report: `docs/ops/reports/saas202548-brand-name-case-study-library-2025-12-24.md`
