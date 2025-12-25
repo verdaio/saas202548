@@ -14,6 +14,35 @@ Each entry includes:
 
 ---
 
+## [v0.2.1] - 2025-12-24
+
+### Agent
+Claude Code (Claude Opus 4.5)
+
+### Prompt Reference
+`cc-saas202548-docs-add-master-plan-workflow-v1.md`
+
+### Changes
+- Added Systemarium master plan, design, and workflow document (v1) to repo
+  - Source: external file `systemarium-master-plan-design-workflow-v1 (1).md`
+  - Target: `docs/systemarium/systemarium-master-plan-design-workflow-v1.md`
+- Created `docs/systemarium/` directory for Systemarium project documentation
+- Updated README.md with Docs section linking to master plan
+- Updated docs/CHANGELOG.md with entry for this addition
+- Updated STATUS.md with note about master plan doc
+
+### Verification
+- File exists at `docs/systemarium/systemarium-master-plan-design-workflow-v1.md`
+- README.md contains link to master plan in Docs section
+- docs/CHANGELOG.md contains v0.2.1 entry
+- STATUS.md updated with master plan note
+
+### Notes
+- Document preserved as-is from source (no content modifications)
+- No truncation or placeholder issues detected in source
+
+---
+
 ## [v0.2.0] - 2025-12-24
 
 ### Agent

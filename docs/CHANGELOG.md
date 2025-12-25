@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.2.1] - 2025-12-24
+
+### Added
+- Systemarium master plan, design, and workflow document (v1)
+  - Located at `docs/systemarium/systemarium-master-plan-design-workflow-v1.md`
+  - Comprehensive plan covering: target outcomes, positioning, content strategy, format design, policy guardrails, operating model, analytics, monetization roadmap, and risk register
+- Created `docs/systemarium/` directory for Systemarium project documentation
+- Added Docs section to README.md linking to master plan
+
+---
+
 ## [v0.2.0] - 2025-12-24
 
 ### Added
