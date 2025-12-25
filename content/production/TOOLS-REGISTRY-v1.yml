@@ -1,0 +1,270 @@
+# Production Tools Registry (v1)
+# Machine-readable tooling baseline for saas202548
+# See docs/production/TOOLING-BASELINE-v1.md for human-readable version
+
+version: "1.0.0"
+last_updated: "2025-12-25"
+status: "active-with-blockers"
+blockers:
+  - "AI voice/TTS tool not chosen"
+  - "Video editor not chosen"
+  - "Licensing verification incomplete for Canva, Epidemic Sound, stock sources"
+
+# Research Tools
+research_tools:
+  default: "manual-web-research"
+  alternatives:
+    - "claude-code-websearch"
+    - "browser-with-notes"
+  inputs:
+    - "topic-brief"
+    - "research-questions"
+  outputs:
+    format: "markdown"
+    location: "content/sources/<episode>-sources-v1.md"
+  licensing_required: false
+
+# Structuring Tools
+structuring_tools:
+  default: "markdown-outline"
+  alternatives: []
+  inputs:
+    - "research-findings"
+    - "topic-brief"
+  outputs:
+    format: "markdown"
+    location: "content/scripts/<episode>-outline-v1.md"
+  licensing_required: false
+
+# Script Tools
+script_tools:
+  default: "markdown-with-citations"
+  alternatives: []
+  inputs:
+    - "outline"
+    - "source-pack"
+  outputs:
+    format: "markdown"
+    location: "content/scripts/<episode>-script-v2.md"
+  licensing_required: false
+  process:
+    - "draft"
+    - "read-through"
+    - "revision"
+    - "recording-test"
+    - "lock"
+
+# TTS / Voice Tools (NOT CHOSEN)
+tts_tools:
+  default: "TBD"  # BLOCKER: Must be decided before EP001 voice rendering
+  alternatives:
+    - "manual-recording-human-voice"
+  candidates_under_evaluation:
+    - name: "elevenlabs"
+      status: "candidate"
+      licensing_verified: false
+    - name: "editor-built-in-tts"
+      status: "candidate"
+      licensing_verified: false
+    - name: "dedicated-tts-service"
+      status: "candidate"
+      licensing_verified: false
+  inputs:
+    - "locked-script-markdown"
+  outputs:
+    format: "wav-or-mp3"
+    location_repo: "content/production/renders/<episode>-voice-v1.wav"
+    location_drive: "<Episode>/Audio/Voice/"
+  licensing_required: true
+  licensing_verification_status: "incomplete"
+  next_action: "Review AI-VOICE-DECISION-v1.md and choose default tool"
+
+# Image / Graphics Tools
+image_tools:
+  graphics:
+    default: "powerpoint-or-keynote"
+    alternatives:
+      - "canva"
+      - "google-slides"
+    avoided_for_mvp:
+      - "after-effects"  # Reason: complexity/time for MVP tier
+    inputs:
+      - "graphics-brief"
+    outputs:
+      format: "mp4-1080p-30fps-or-png-sequence"
+      location_repo: "content/production/renders/<episode>-graphic-<id>.mp4"
+      location_drive: "<Episode>/Graphics/Exports/"
+      source_files_drive: "<Episode>/Graphics/Source/"  # PPTX, Canva files
+    licensing_required: true
+    licensing_verification_status: "incomplete"  # Canva commercial use unverified
+  stock_footage:
+    default_free:
+      - "pexels"
+      - "pixabay"
+      - "unsplash"
+    default_paid_fallback:
+      - "storyblocks"
+      - "artgrid"
+    self_shoot: true  # 5 MVP shots for EP001 per broll-v2.md
+    inputs:
+      - "broll-shot-list"
+    outputs:
+      format: "mp4-clips"
+      location_drive: "<Episode>/B-Roll/"  # Not in repo (file size)
+    licensing_required: true
+    licensing_verification_status: "incomplete"  # Per-clip verification needed
+  fonts:
+    default:
+      - name: "Arial"
+        source: "system-font"
+        licensing: "OS-licensed"
+      - name: "Helvetica"
+        source: "system-font"
+        licensing: "OS-licensed"
+    fallback:
+      - name: "Roboto"
+        source: "google-fonts"
+        licensing: "open-license"
+        url: "https://fonts.google.com/specimen/Roboto"
+    licensing_required: false  # System fonts + Google Fonts
+
+# Editor Tools (NOT CHOSEN)
+editor_tools:
+  default: "TBD"  # BLOCKER: Must be decided before EP001 final edit
+  candidates_under_evaluation:
+    - name: "davinci-resolve"
+      status: "candidate"
+      pros: "professional, free"
+      cons: "steep learning curve"
+      licensing_verified: false
+    - name: "capcut"
+      status: "candidate"
+      pros: "fast, beginner-friendly"
+      cons: "limited features"
+      licensing_verified: false
+    - name: "clipchamp"
+      status: "candidate"
+      pros: "browser-based"
+      cons: "requires internet"
+      licensing_verified: false
+  inputs:
+    - "voice-audio"
+    - "graphics-exports"
+    - "broll-clips"
+    - "music"
+    - "script-for-captions"
+  outputs:
+    format: "mp4-1080p-h264"
+    location_repo: "renders/"  # Local only, .gitignore'd
+    location_drive: "<Episode>/Exports/<episode>-final-v1.mp4"
+  licensing_required: false  # Editors themselves are free/subscription, not per-export
+  next_action: "Test caption workflow, export quality, choose default"
+
+# Music Sources
+music_sources:
+  default_subscription:
+    - name: "epidemic-sound"
+      status: "preferred"
+      licensing_verified: false  # Need to confirm subscription tier allows YouTube monetization
+      url: "https://www.epidemicsound.com"
+  default_free:
+    - name: "youtube-audio-library"
+      status: "fallback"
+      licensing_verified: false  # Fingerprint risk unverified
+      url: "https://www.youtube.com/audiolibrary"
+  alternatives:
+    - name: "artlist"
+      status: "alternative-subscription"
+      licensing_verified: false
+      url: "https://artlist.io"
+    - name: "freesound-org"
+      status: "sfx-only"
+      licensing_verified: false
+      url: "https://freesound.org"
+  inputs:
+    - "music-selection-notes"
+    - "script-tone"
+  outputs:
+    format: "mp3-or-wav"
+    location_drive: "<Episode>/Audio/Music/"  # Not in repo (file size + licensing)
+  licensing_required: true
+  licensing_verification_status: "incomplete"
+
+# Licensing Verification Required
+licensing_verification_required:
+  - tool: "canva"
+    reason: "Commercial use rights unclear for free vs Pro tier"
+    proof_location: "content/production/licenses/canva/"
+    status: "unverified"
+  - tool: "pexels"
+    reason: "Per-clip license snapshot needed"
+    proof_location: "content/production/licenses/pexels/<asset-id>/"
+    status: "unverified"
+  - tool: "pixabay"
+    reason: "Per-clip license snapshot needed"
+    proof_location: "content/production/licenses/pixabay/<asset-id>/"
+    status: "unverified"
+  - tool: "unsplash"
+    reason: "Per-clip license snapshot needed"
+    proof_location: "content/production/licenses/unsplash/<asset-id>/"
+    status: "unverified"
+  - tool: "epidemic-sound"
+    reason: "Subscription tier allows YouTube monetization (need confirmation)"
+    proof_location: "content/production/licenses/epidemic-sound/"
+    status: "unverified"
+  - tool: "youtube-audio-library"
+    reason: "Fingerprint risk (practical test needed: upload unlisted video)"
+    proof_location: "content/production/licenses/youtube-audio-library/"
+    status: "unverified"
+
+# Chosen Defaults (Quick Reference)
+chosen_defaults:
+  research: "manual-web-research"
+  structure: "markdown-outline"
+  script: "markdown-with-citations"
+  voice: "TBD"  # BLOCKER
+  graphics: "powerpoint-or-keynote"
+  stock_footage_free: "pexels-pixabay-unsplash"
+  stock_footage_paid: "storyblocks-or-artgrid"
+  music_subscription: "epidemic-sound"
+  music_free: "youtube-audio-library"
+  fonts: "arial-helvetica-roboto"
+  editor: "TBD"  # BLOCKER
+
+# Decision Gates
+decision_gates:
+  can_start_now:
+    - "research"
+    - "structure"
+    - "script"
+    - "graphics-creation"
+    - "stock-footage-sourcing"
+  blocked_until_tool_chosen:
+    - stage: "voice-rendering"
+      blocker: "TTS tool not chosen"
+      ref: "docs/production/AI-VOICE-DECISION-v1.md"
+    - stage: "final-edit"
+      blocker: "Video editor not chosen"
+      ref: "docs/production/TOOLING-BASELINE-v1.md"
+  blocked_until_licensing_verified:
+    - "canva-graphics"
+    - "epidemic-sound-music"
+    - "stock-footage-per-clip"
+
+# Repo Evidence References
+evidence:
+  - file: "content/graphics/EP001-ups-orion-graphics-v2.md"
+    finding: "PowerPoint/Keynote, Canva, Google Slides specified for MVP"
+    commit: "4c9baf7"  # PR #12
+  - file: "content/broll/EP001-ups-orion-broll-v2.md"
+    finding: "Pexels, Pixabay, Unsplash (free); Storyblocks, Artgrid (paid)"
+    commit: "4c9baf7"  # PR #12
+  - file: "content/production/EP001-asset-manifest-v1.md"
+    finding: "Epidemic Sound, YouTube Audio Library, Freesound.org, Arial/Helvetica/Roboto"
+    commit: "4c9baf7"  # PR #12
+  - file: "docs/legal/POLICY-GUARDRAILS.md"
+    finding: "Music licensing policy (YouTube Audio Library, Epidemic Sound, Artlist)"
+    commit: "fb7038f"  # Initial scaffold
+  - file: ".gitignore"
+    finding: "renders/ folder excluded (implies local render output)"
+    commit: "fb7038f"  # Initial scaffold

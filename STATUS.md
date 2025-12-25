@@ -5,10 +5,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | EP001 Production Prep (MVP Assets Planned) |
-| **Next Milestone** | EP001 Recording Test |
+| **Current Stage** | EP001 Tooling Baseline Established (Blocked: Voice/Edit Tools) |
+| **Next Milestone** | Choose TTS Tool + Video Editor |
 | **Last Updated** | 2025-12-25 |
-| **Scaffold Version** | v0.3.6 |
+| **Scaffold Version** | v0.3.7 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
@@ -32,6 +32,14 @@
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-25**: Production tooling baseline established
+  - Tooling baseline: `docs/production/TOOLING-BASELINE-v1.md` (6-stage pipeline with defaults/fallbacks)
+  - Tools registry: `content/production/TOOLS-REGISTRY-v1.yml` (machine-readable)
+  - AI voice decision: `docs/production/AI-VOICE-DECISION-v1.md` (evaluation framework)
+  - License verification: `docs/production/LICENSE-VERIFICATION-CHECKLIST-v1.md` (proof capture procedure)
+  - **Blockers:** AI voice/TTS and video editor not yet chosen
+  - **Licensing gaps:** Canva, Epidemic Sound, stock footage need verification
+  - Ready for: TTS candidate testing, video editor evaluation, license verification
 - **2025-12-25**: EP001 MVP production pack completed
   - B-roll v2: `content/broll/EP001-ups-orion-broll-v2.md` (12 MVP shots + extended tier)
   - Graphics v2: `content/graphics/EP001-ups-orion-graphics-v2.md` (5 MVP graphics + extended tier)
