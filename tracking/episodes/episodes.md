@@ -6,6 +6,8 @@ This file tracks all videos from planning through publication and review.
 
 **Last Updated**: 2025-12-24
 
+**EP001 Script Status**: Outline v1 complete at `content/scripts/EP001-ups-routing-outline-v1.md`
+
 **Current Focus**: EP001 - How UPS Turned Routing Into a Machine
 
 ---
@@ -64,17 +66,18 @@ This file tracks all videos from planning through publication and review.
 5. Results and continuous refinement
 
 **Research Needed**:
-- [ ] ORION system documentation/articles
-- [ ] UPS annual reports on efficiency gains
-- [ ] Driver perspectives (interviews, articles)
-- [ ] Comparison to FedEx/other carriers
+- [x] ORION system documentation/articles
+- [ ] UPS annual reports on efficiency gains (nice to have)
+- [x] Driver perspectives (interviews, articles)
+- [ ] Comparison to FedEx/other carriers (optional, not in outline)
 
 **Visual Approach**:
 - Maps showing routing optimization
 - Package flow diagrams
 - Historical vs modern logistics imagery
 
-**Assets Location**: TBD
+**Script**: `content/scripts/EP001-ups-routing-outline-v1.md`
+**Assets Location**: TBD (Google Drive)
 
 ---
 
