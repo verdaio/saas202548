@@ -8,7 +8,7 @@
 | **Current Stage** | EP001 Scripting |
 | **Next Milestone** | EP001 Published |
 | **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.2.0 |
+| **Scaffold Version** | v0.2.1 |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
 | **Asset Storage** | Google Drive |
@@ -25,6 +25,11 @@
 - [ ] EP001 published
 - [ ] First 3 videos published
 - [ ] First month analytics reviewed
+
+### Notes
+- **2025-12-24**: Systemarium master plan document committed and linked
+  - Path: `docs/systemarium/systemarium-master-plan-design-workflow-v1.md`
+  - Contains: 90/180-day outcomes, positioning, content strategy, format design, policy guardrails, operating model, analytics system, monetization roadmap, risk register
 
 <!-- STATUS:END -->
 
