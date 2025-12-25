@@ -24,6 +24,7 @@
 - [x] EP001 outline created
 - [x] EP001 script drafted (v1 complete with sources, B-roll, graphics, pacing)
 - [x] EP001 script read-through and revision (v2 complete)
+- [x] EP001 MVP production pack created (tiered assets, manifest, recording test materials)
 - [ ] EP001 recording test
 - [ ] EP001 recorded
 - [ ] EP001 published
@@ -39,6 +40,17 @@
   - **Blockers:** AI voice/TTS and video editor not yet chosen
   - **Licensing gaps:** Canva, Epidemic Sound, stock footage need verification
   - Ready for: TTS candidate testing, video editor evaluation, license verification
+- **2025-12-25**: EP001 MVP production pack completed
+  - B-roll v2: `content/broll/EP001-ups-orion-broll-v2.md` (12 MVP shots + extended tier)
+  - Graphics v2: `content/graphics/EP001-ups-orion-graphics-v2.md` (5 MVP graphics + extended tier)
+  - Pacing v2: `content/production/EP001-readthrough-pacing-v2.md` (aligned to script v2 with cut list)
+  - Asset manifest: `content/production/EP001-asset-manifest-v1.md` (licensing tracking table)
+  - Recording test plan: `content/production/EP001-recording-test-plan-v1.md` (procedure with pass/fail gates)
+  - Recording test log: `content/production/EP001-recording-test-log-template-v1.md` (fill-in template)
+  - Press request template: `content/production/EP001-ups-press-request-template-v1.md` (optional)
+  - MVP-first approach: minimal viable assets for complete episode
+  - MVP budget estimate: $0-1,400 (vs. $5,000+ for extended tier)
+  - Ready for recording test and asset acquisition
 - **2025-12-25**: EP001 script v2 completed after read-through
   - Read-through log: `content/production/EP001-readthrough-log-v1.md` (comprehensive analysis)
   - Script v2: `content/scripts/EP001-ups-routing-script-v2.md` (~2,350 words, 15.5 min target)

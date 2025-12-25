@@ -74,6 +74,73 @@ Claude Code (Claude Sonnet 4.5)
 
 ---
 
+## [v0.3.6] - 2025-12-25
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-content-ep001-production-pack-mvp-v1.md`
+
+### Changes
+- Created MVP-first production pack for EP001 with tiered asset approach
+- Created `content/broll/EP001-ups-orion-broll-v2.md`:
+  - MVP tier: 12 critical shots (minimum for complete episode)
+  - Extended tier: Additional shots from v1 for polish
+  - Each shot includes: purpose, section/timecode, licensing plan, production notes
+  - Self-shoot candidates, stock footage candidates, and critical graphics identified
+- Created `content/graphics/EP001-ups-orion-graphics-v2.md`:
+  - MVP tier: 5 graphics (PowerPoint/Canva-level complexity)
+  - Route comparison graphics (convoluted vs. clean, left vs. right turns)
+  - On-screen statistics template (reusable)
+  - "Beat the Computer" poster
+  - Extended tier: Advanced animations from v1
+- Created `content/production/EP001-readthrough-pacing-v2.md`:
+  - Aligned timing targets to script v2 structure
+  - Added prioritized cut list (Tier 1, Tier 2, Tier 3)
+  - Pacing tips specific to script v2
+- Created `content/production/EP001-asset-manifest-v1.md`:
+  - Comprehensive asset tracking table
+  - Columns: Asset ID, Type, Filename, Source, License Status, Proof, Where Used, Notes
+  - Seeded with all MVP shots and graphics
+  - Licensing summary and risk notes
+- Created `content/production/EP001-recording-test-plan-v1.md`:
+  - Step-by-step procedure for recording test
+  - Pre-recording setup checklist (environment, equipment, software, script prep)
+  - Target delivery style guidelines
+  - Pass/fail gates with specific criteria
+  - Common issues and fixes
+  - Marking system for script annotations
+- Created `content/production/EP001-recording-test-log-template-v1.md`:
+  - Fill-in template for tracking recording test results
+  - Setup tracking, timing breakdown, stumbles log, energy assessment
+  - Top 10 priority fixes table
+  - Cut candidates tracking
+  - Pass/fail decision framework
+- Created `content/production/EP001-ups-press-request-template-v1.md`:
+  - Professional press request letter template for UPS materials
+  - Usage notes and customization guidance
+  - Backup plan for fair use approach if declined
+- Updated docs/CHANGELOG.md, AI-UPGRADES-LOG.md, STATUS.md
+
+### Verification
+- All 7 production pack files created: PASS
+- No new numeric claims introduced: PASS (qualitative descriptions only)
+- MVP tier sanity: PASS (12 B-roll shots, 5 graphics)
+- Asset manifest includes all MVP items: PASS (verified table completeness)
+- Documentation files updated: PASS
+
+### Notes
+- MVP-first philosophy: minimal viable assets for complete episode
+- MVP budget: $0-1,400 (vs. $5,000+ for extended tier)
+- MVP production time: 20-30 hours total (vs. 60-80 hours for extended)
+- Asset manifest critical for licensing compliance
+- Recording test plan provides human-executable procedure with clear pass/fail gates
+- Press request template is optional; fair use approach is fallback
+- Next steps: recording test → asset acquisition → final production
+
+---
+
 ## [v0.3.5] - 2025-12-25
 
 ### Agent
