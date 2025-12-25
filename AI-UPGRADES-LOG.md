@@ -14,6 +14,46 @@ Each entry includes:
 
 ---
 
+## [v0.3.4] - 2025-12-25
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-content-ep001-script-draft-v1.md`
+
+### Changes
+- Created full script draft for EP001 with comprehensive production artifacts:
+  - **Script**: `content/scripts/EP001-ups-routing-script-v1.md` (~2,480 words, 16.5 min target)
+  - **Sources**: `content/sources/EP001-ups-orion-sources-v1.md` (16 citations with URLs, dates, and notes)
+  - **B-roll**: `content/broll/EP001-ups-orion-broll-v1.md` (27 shots with timing, licensing notes)
+  - **Graphics**: `content/graphics/EP001-ups-orion-graphics-v1.md` (10 graphics/animations with specs)
+  - **Pacing**: `content/production/EP001-readthrough-pacing-v1.md` (read-through procedure and timing)
+- Conducted source research using WebSearch and WebFetch for all numeric claims
+- Corrected factual inaccuracies from outline:
+  - Package volume: 25M → 22.4M daily (2024 data)
+  - Fleet size: 125K → 135K vehicles (2024 data)
+  - Annual miles: 5.5B → 3.5B (5.5B is packages, not miles)
+  - Dynamic routing: 2024 → 2020-2021 (correct timeline)
+- Updated docs/CHANGELOG.md, AI-UPGRADES-LOG.md, STATUS.md
+
+### Verification
+- All 5 content files created: PASS
+- All numeric claims have source markers [S#]: PASS (verified via grep)
+- All source markers [S1]-[S16] exist in source pack: PASS
+- Script word count within target range (2,100-3,200): PASS (2,480 words)
+- Documentation files updated: PASS
+- No secrets or sensitive data in files: PASS
+
+### Notes
+- Script follows outline structure but corrects factual errors identified during research
+- Source pack includes "Risk Notes" section flagging weakly supported claims
+- All graphics are specified as self-made or requiring licensing
+- Pacing plan includes procedure for read-through and revision workflow
+- Ready for next phase: script read-through, revisions, and recording
+
+---
+
 ## [v0.3.3] - 2025-12-24
 
 ### Agent
