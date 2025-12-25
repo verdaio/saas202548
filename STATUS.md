@@ -8,7 +8,7 @@
 | **Current Stage** | EP001 Scripting |
 | **Next Milestone** | EP001 Published |
 | **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.2.0 |
+| **Scaffold Version** | v0.3.0 |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
 | **Asset Storage** | Google Drive |
@@ -142,7 +142,14 @@ C:\devop\saas202548\tracking\ideas\ideas.md
 
 ## Decisions Pending
 
-None - ready to begin EP001 production.
+1. **Git remote**: Configure GitHub/GitLab remote for backup (highest priority)
+
+## Kickoff Audit Notes (2025-12-24)
+
+- Kickoff baseline audit completed
+- Added PROJECT-MEMORY-PACKET.md and LOCAL-DEV-BOOTSTRAP.md
+- Full audit report: `docs/ops/reports/saas202548-kickoff-audit-2025-12-24.md`
+- Top risk: No git remote configured (data loss risk)
 
 ## Next Steps
 

@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.0] - 2025-12-24
+
+### Added
+- Kickoff baseline audit completed
+- `docs/project/PROJECT-MEMORY-PACKET.md` - Quick-reference for repo onboarding
+- `docs/ops/LOCAL-DEV-BOOTSTRAP.md` - Local environment setup guide
+- `docs/ops/reports/saas202548-kickoff-audit-2025-12-24.md` - Full audit report
+
+### Changed
+- Updated STATUS.md with audit notes and pending decision (git remote)
+
+### Notes
+- Top risk identified: No git remote configured
+- Recommended next PR: Configure GitHub/GitLab remote
+
+---
+
 ## [v0.2.0] - 2025-12-24
 
 ### Added
