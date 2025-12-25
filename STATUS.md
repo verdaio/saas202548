@@ -5,21 +5,24 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | Content Planning |
-| **Next Milestone** | First video published |
+| **Current Stage** | EP001 Scripting |
+| **Next Milestone** | EP001 Published |
 | **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.1.0 |
+| **Scaffold Version** | v0.2.0 |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
+| **Asset Storage** | Google Drive |
+| **Active Episode** | EP001 - How UPS Turned Routing Into a Machine |
 
 ### Stage Progression
 
 - [x] Scaffold created
 - [x] Channel positioning defined (Quiet Business Machines)
 - [x] First 6 video topics selected
-- [ ] Asset storage configured
-- [ ] First video scripted
-- [ ] First video published
+- [x] Asset storage configured (Google Drive)
+- [ ] EP001 scripted
+- [ ] EP001 recorded
+- [ ] EP001 published
 - [ ] First 3 videos published
 - [ ] First month analytics reviewed
 
@@ -127,7 +130,9 @@ C:\devop\saas202548\tracking\ideas\ideas.md
 ## Decisions Made
 
 1. **Channel Positioning**: "Quiet Business Machines" - calm, sleepy documentaries about invisible business systems
-2. **First 6 Video Topics**:
+2. **Asset Storage**: Google Drive (`Quiet Business Machines/` folder)
+3. **First Episode**: EP001 - How UPS Turned Routing Into a Machine
+4. **First 6 Video Topics**:
    - EP001: How UPS Turned Routing Into a Machine
    - EP002: The Quiet Rules Behind Credit Card Payments
    - EP003: Why Toyota's System Was Hard to Copy
@@ -137,5 +142,10 @@ C:\devop\saas202548\tracking\ideas\ideas.md
 
 ## Decisions Pending
 
-1. **Asset Storage Location**: Choose local drive or cloud storage path
-2. **First Episode to Produce**: Recommend EP001 (UPS) or EP006 (Barcode)
+None - ready to begin EP001 production.
+
+## Next Steps
+
+1. Set up Google Drive folder structure (see `docs/ops/ASSET-STORAGE.md`)
+2. Begin EP001 research and outline
+3. Write EP001 script using `templates/scripts/script-template-v1.md`

@@ -6,6 +6,8 @@ This file tracks all videos from planning through publication and review.
 
 **Last Updated**: 2025-12-24
 
+**Current Focus**: EP001 - How UPS Turned Routing Into a Machine
+
 ---
 
 ## Stage Definitions
@@ -27,7 +29,7 @@ This file tracks all videos from planning through publication and review.
 
 | EP ID | Working Title | Stage | Planned Publish | Assets Path | Notes |
 |-------|---------------|-------|-----------------|-------------|-------|
-| EP001 | How UPS Turned Routing Into a Machine | Planning | TBD | TBD | ORION algorithm, logistics optimization |
+| EP001 | How UPS Turned Routing Into a Machine | **Scripting** | TBD | `GDrive/Quiet Business Machines/EP001-UPS-Routing/` | **ACTIVE** - First episode |
 | EP002 | The Quiet Rules Behind Credit Card Payments | Planning | TBD | TBD | Payment rails, interchange fees |
 | EP003 | Why Toyota's System Was Hard to Copy | Planning | TBD | TBD | TPS, just-in-time, human elements |
 | EP004 | The Rise and Fall of Blackberry (Slow Documentary) | Planning | TBD | TBD | First "Slow Documentary" format |
