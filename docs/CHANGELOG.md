@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.4] - 2025-12-25
+
+### Added
+- EP001 full script draft with cited sources
+  - `content/scripts/EP001-ups-routing-script-v1.md` - Full narration script (~2,480 words, 16.5 min target)
+  - `content/sources/EP001-ups-orion-sources-v1.md` - Comprehensive source pack with 16 citations
+  - `content/broll/EP001-ups-orion-broll-v1.md` - B-roll shot list (27 shots)
+  - `content/graphics/EP001-ups-orion-graphics-v1.md` - Graphics and animations brief (10 graphics)
+  - `content/production/EP001-readthrough-pacing-v1.md` - Read-through pacing plan and procedure
+
+### Changed
+- Updated STATUS.md to reflect EP001 progress (Outline → Script Draft)
+
+### Notes
+- All numeric claims in script are supported by cited sources
+- Corrected several inaccuracies from outline (package volume, fleet size, mileage, timeline)
+- Script includes source markers [S1]-[S16] for fact-checking
+- Production artifacts ready for next phase (recording, B-roll acquisition, graphics production)
+
+---
+
 ## [v0.3.3] - 2025-12-24
 
 ### Changed

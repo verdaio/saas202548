@@ -5,10 +5,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | EP001 Scripting |
-| **Next Milestone** | EP001 Published |
-| **Last Updated** | 2025-12-24 |
-| **Scaffold Version** | v0.3.3 |
+| **Current Stage** | EP001 Script Review |
+| **Next Milestone** | EP001 Recording |
+| **Last Updated** | 2025-12-25 |
+| **Scaffold Version** | v0.3.4 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
@@ -21,13 +21,22 @@
 - [x] Channel positioning defined (Quiet Business Machines)
 - [x] First 6 video topics selected
 - [x] Asset storage configured (Google Drive)
-- [ ] EP001 scripted
+- [x] EP001 outline created
+- [x] EP001 script drafted (v1 complete with sources, B-roll, graphics, pacing)
+- [ ] EP001 script read-through and revision
 - [ ] EP001 recorded
 - [ ] EP001 published
 - [ ] First 3 videos published
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-25**: EP001 script draft completed (v1)
+  - Full script: `content/scripts/EP001-ups-routing-script-v1.md` (~2,480 words, 16.5 min target)
+  - Source pack: `content/sources/EP001-ups-orion-sources-v1.md` (16 cited sources)
+  - B-roll list: `content/broll/EP001-ups-orion-broll-v1.md` (27 shots)
+  - Graphics brief: `content/graphics/EP001-ups-orion-graphics-v1.md` (10 graphics)
+  - Pacing plan: `content/production/EP001-readthrough-pacing-v1.md`
+  - All numeric claims backed by cited sources; factual errors from outline corrected
 - **2025-12-24**: Brand vs channel naming split clarified
   - Brand (visual identity): **Case Study Library**
   - Channel (content positioning): **Quiet Business Machines**
