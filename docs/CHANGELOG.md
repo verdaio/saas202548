@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.6] - 2025-12-25
+
+### Added
+- EP001 MVP production pack with tiered asset approach
+  - `content/broll/EP001-ups-orion-broll-v2.md` - MVP-first B-roll plan (12 MVP shots + extended tier)
+  - `content/graphics/EP001-ups-orion-graphics-v2.md` - MVP-first graphics plan (5 MVP graphics + extended tier)
+  - `content/production/EP001-readthrough-pacing-v2.md` - Pacing plan aligned to script v2 with cut list
+  - `content/production/EP001-asset-manifest-v1.md` - Asset and licensing tracking table
+  - `content/production/EP001-recording-test-plan-v1.md` - Recording test procedure
+  - `content/production/EP001-recording-test-log-template-v1.md` - Recording test log template
+  - `content/production/EP001-ups-press-request-template-v1.md` - Press request template (optional)
+
+### Changed
+- Updated STATUS.md to reflect EP001 progress (Script v2 → Production Prep)
+
+### Notes
+- MVP-first approach separates minimal viable assets from optional enhancements
+- MVP tier: 12 B-roll shots + 5 graphics = complete episode with minimal cost/time
+- Extended tier: Carry-forward from v1 for production value polish
+- Asset manifest tracks licensing status for legal compliance
+- Recording test plan provides pass/fail gates and marking system
+- Estimated MVP budget: $0-1,400 (vs. $5,000+ for full extended tier)
+- Ready for recording test and asset acquisition
+
+---
+
 ## [v0.3.5] - 2025-12-25
 
 ### Added
