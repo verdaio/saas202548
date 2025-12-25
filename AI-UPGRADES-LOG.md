@@ -14,6 +14,31 @@ Each entry includes:
 
 ---
 
+## [v0.3.3] - 2025-12-24
+
+### Agent
+Claude Code (Claude Opus 4.5)
+
+### Prompt Reference
+`cc-saas202548-branding-naming-split-template-propagation-v1.md` (Workstream 1)
+
+### Changes
+- Clarified brand vs channel naming split in branding docs
+- Added `channel_name: "Quiet Business Machines"` to `BRAND.yml`
+- Added Naming section to `BRAND.md` explaining the two-name convention
+- Created evidence report: `docs/ops/reports/saas202548-branding-naming-split-2025-12-24.md`
+
+### Verification
+- `BRAND.yml` contains both `brand_name` and `channel_name`: PASS
+- `BRAND.md` contains Naming section: PASS
+
+### Notes
+- Brand (visual identity): Case Study Library
+- Channel (content positioning): Quiet Business Machines
+- Rule: assets are versioned under `selected/v1/`; do not rename when channel name changes
+
+---
+
 ## [v0.3.2] - 2025-12-24
 
 ### Agent

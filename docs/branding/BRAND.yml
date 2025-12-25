@@ -1,8 +1,13 @@
 # Brand Configuration
 # Source of truth for brand identity elements
 
-# Brand Identity
+# Brand Identity (visual)
 brand_name: "Case Study Library"
+
+# Channel Identity (content positioning)
+channel_name: "Quiet Business Machines"
+
+# Tagline
 tagline: "TBD"  # Tagline to be defined
 
 # Logo Assets

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.3] - 2025-12-24
+
+### Changed
+- Clarified brand vs channel naming split in branding docs
+  - Brand (visual identity): Case Study Library
+  - Channel (content positioning): Quiet Business Machines
+- Added `channel_name` field to `BRAND.yml`
+- Added Naming section to `BRAND.md`
+
+---
+
 ## [v0.3.2] - 2025-12-24
 
 ### Added
