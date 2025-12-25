@@ -14,6 +14,47 @@ Each entry includes:
 
 ---
 
+## [v0.3.5] - 2025-12-25
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-content-ep001-readthrough-revise-v1.md`
+
+### Changes
+- Conducted comprehensive read-through analysis of EP001 script v1
+- Created `content/production/EP001-readthrough-log-v1.md`:
+  - Section-by-section analysis (stumbles, awkward phrasing, flow issues)
+  - Top 10 priority edits identified
+  - Top 3 retention risks documented
+  - Pacing analysis and pattern interrupt assessment
+  - Energy curve evaluation
+- Created `content/scripts/EP001-ups-routing-script-v2.md`:
+  - Improved speakability (shorter sentences, clearer number delivery)
+  - Reduced number density (cut ~130 words, improved pacing)
+  - More conversational language ("eclectic" → "people who understood both math and reality")
+  - Added pattern interrupts (questions, concrete examples)
+  - Better transitions between sections
+  - Removed rigid "First, Second, Third, Fourth" structure in recap
+- Updated docs/CHANGELOG.md, AI-UPGRADES-LOG.md, STATUS.md
+
+### Verification
+- All new files created: PASS (read-through log, script v2)
+- Citation integrity maintained: PASS (all [S#] markers verified)
+- Word count reduction: PASS (2,480 → 2,350 words, -5%)
+- Estimated duration improvement: PASS (16.5 min → 15.5 min)
+- All "MUST CHANGE" edits from read-through log applied: PASS
+- Documentation files updated: PASS
+
+### Notes
+- Read-through log serves as procedure template for future scripts
+- Script v2 addresses speakability, retention, and flow issues while preserving structure
+- No new sources required; all existing citations remain valid
+- Ready for recording test and final micro-adjustments
+
+---
+
 ## [v0.3.4] - 2025-12-25
 
 ### Agent
