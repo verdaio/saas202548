@@ -5,10 +5,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | EP001 Script Review |
+| **Current Stage** | EP001 Script v2 Ready for Recording Test |
 | **Next Milestone** | EP001 Recording |
 | **Last Updated** | 2025-12-25 |
-| **Scaffold Version** | v0.3.4 |
+| **Scaffold Version** | v0.3.5 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
@@ -23,13 +23,19 @@
 - [x] Asset storage configured (Google Drive)
 - [x] EP001 outline created
 - [x] EP001 script drafted (v1 complete with sources, B-roll, graphics, pacing)
-- [ ] EP001 script read-through and revision
+- [x] EP001 script read-through and revision (v2 complete)
+- [ ] EP001 recording test
 - [ ] EP001 recorded
 - [ ] EP001 published
 - [ ] First 3 videos published
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-25**: EP001 script v2 completed after read-through
+  - Read-through log: `content/production/EP001-readthrough-log-v1.md` (comprehensive analysis)
+  - Script v2: `content/scripts/EP001-ups-routing-script-v2.md` (~2,350 words, 15.5 min target)
+  - Improvements: better speakability, reduced number density, added pattern interrupts, more conversational
+  - Ready for recording test
 - **2025-12-25**: EP001 script draft completed (v1)
   - Full script: `content/scripts/EP001-ups-routing-script-v1.md` (~2,480 words, 16.5 min target)
   - Source pack: `content/sources/EP001-ups-orion-sources-v1.md` (16 cited sources)

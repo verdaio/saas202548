@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.5] - 2025-12-25
+
+### Added
+- EP001 read-through log and script v2
+  - `content/production/EP001-readthrough-log-v1.md` - Comprehensive read-through analysis
+  - `content/scripts/EP001-ups-routing-script-v2.md` - Revised script with speakability improvements (~2,350 words, 15.5 min target)
+
+### Changed
+- Updated STATUS.md to reflect EP001 progress (Script Draft → Script v2 ready for recording test)
+
+### Notes
+- Read-through log identifies 10 priority edits and 3 top retention risks
+- Script v2 improvements:
+  - Better speakability (shorter sentences, clearer number delivery)
+  - Reduced number density in Sections 1 and 6
+  - More conversational language (less academic phrasing)
+  - Added pattern interrupts and concrete examples
+  - Better pacing distribution (15.5 min vs 16.5 min)
+- All numeric claims still properly cited with [S#] markers
+- Citation integrity verified — no new sources required
+
+---
+
 ## [v0.3.4] - 2025-12-25
 
 ### Added
