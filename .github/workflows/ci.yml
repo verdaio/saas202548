@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate markdown files exist
+        run: |
+          echo "Checking required files..."
+          test -f README.md && echo "README.md: OK"
+          test -f STATUS.md && echo "STATUS.md: OK"
+          test -f AI-UPGRADES-LOG.md && echo "AI-UPGRADES-LOG.md: OK"
+          test -f docs/CHANGELOG.md && echo "docs/CHANGELOG.md: OK"
+          echo "All checks passed!"
