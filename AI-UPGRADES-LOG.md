@@ -14,6 +14,65 @@ Each entry includes:
 
 ---
 
+## [v0.3.8] - 2025-12-25
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-ops-ep001-tts-eval-select-v1.md`
+
+### Changes
+- Created TTS/AI Voice evaluation framework (ready for user testing)
+- Created `content/production/ep001-tts-test-excerpt-v1.md`:
+  - Extracted ~200 words from EP001 script v2 (Cold Open + Section 1)
+  - Includes test requirements: "UPS" (U-P-S), "ORION", large numbers, technical terms
+  - Desired speaking notes: calm/neutral tone, pronunciation guidance, pacing at 150 WPM
+  - Target duration: 60-90 seconds
+- Created `content/production/renders/.gitignore`:
+  - Ignores audio files: `*.mp3`, `*.wav`, `*.m4a`, `*.aac`, `*.flac`, `*.ogg`
+  - Prevents accidental commit of large media files
+- Created `docs/production/AI-VOICE-DECISION-RESULTS-v1.md`:
+  - Comprehensive results template for user to fill in after testing
+  - Candidates table (tool, lane, available, duration, notes)
+  - 10-point rubric scoring table (naturalness, consistency, pronunciation, etc.)
+  - Detailed notes section per tool (strengths, weaknesses, pronunciation tests, export workflow, cost, licensing)
+  - Decision justification section (chosen default + fallback)
+  - Blockers and next steps checklist
+  - Verification checklist
+- Created `content/production/licenses/tts/README.md`:
+  - Hash-based licensing evidence policy for public repo safety
+  - Explains why we don't commit screenshots/receipts (public repo)
+  - Procedure: store proof locally, compute SHA256 hashes, commit hash records only
+  - Evidence record template with hash table
+  - Verification workflow
+- Updated docs/CHANGELOG.md, AI-UPGRADES-LOG.md (this file)
+
+### Verification
+- Test excerpt created: PASS
+- `.gitignore` created for renders: PASS
+- Decision results template created: PASS
+- TTS license README created: PASS
+- Documentation files updated: PASS
+- No audio files committed: PASS (renders/.gitignore in place)
+- No sensitive data committed: PASS (hash-based evidence policy documented)
+
+### Notes
+- **Critical limitation:** Claude Code cannot generate or listen to audio
+- **User action required:** User must test TTS tools, score rubric, fill in results template
+- Scaffolding complete: test excerpt, evaluation template, licensing policy all ready
+- **Blocker still present:** AI voice/TTS tool not chosen (awaiting user testing)
+- Next steps for user:
+  1. Test at least one tool per lane (A/B/C) if available
+  2. Generate audio renders using test excerpt
+  3. Score each tool using 10-point rubric
+  4. Verify licensing terms, capture proof files locally
+  5. Compute SHA256 hashes, create evidence records
+  6. Fill in `AI-VOICE-DECISION-RESULTS-v1.md`
+  7. Update `TOOLS-REGISTRY-v1.yml` and `TOOLING-BASELINE-v1.md` with chosen tool
+
+---
+
 ## [v0.3.7] - 2025-12-25
 
 ### Agent

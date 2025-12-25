@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.3.8] - 2025-12-25
+
+### Added
+- TTS/AI Voice evaluation framework (ready for user testing)
+  - `content/production/ep001-tts-test-excerpt-v1.md` - Test excerpt (~200 words, 60-90 sec)
+  - `content/production/renders/.gitignore` - Ignore audio files (*.mp3, *.wav, *.m4a)
+  - `docs/production/AI-VOICE-DECISION-RESULTS-v1.md` - Results template for user to fill in
+  - `content/production/licenses/tts/README.md` - Hash-based licensing evidence policy
+
+### Notes
+- Test excerpt includes: "UPS" (U-P-S), "ORION", large numbers, technical terms
+- Evaluation framework ready, but **requires user testing** (Claude cannot generate or evaluate audio)
+- Licensing evidence uses SHA256 hashes (public repo safety — no sensitive screenshots committed)
+- User must: test tools, score rubric, verify licenses, update registry/baseline with chosen tool
+- **Blocker:** AI voice/TTS tool still not chosen (awaiting user testing)
+
+---
+
 ## [v0.3.7] - 2025-12-25
 
 ### Added
