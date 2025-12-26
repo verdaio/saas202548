@@ -5,10 +5,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | EP001 Tooling Baseline Established (Blocked: Voice/Edit Tools) |
-| **Next Milestone** | Choose TTS Tool + Video Editor |
+| **Current Stage** | EP001 TTS Evaluation Framework Ready (Awaiting User Testing) |
+| **Next Milestone** | Test TTS Tools + Choose Default |
 | **Last Updated** | 2025-12-25 |
-| **Scaffold Version** | v0.3.7 |
+| **Scaffold Version** | v0.3.8 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Episodes Planned** | 6 |
@@ -32,6 +32,13 @@
 - [ ] First month analytics reviewed
 
 ### Notes
+- **2025-12-25**: TTS/AI Voice evaluation framework ready for user testing
+  - Test excerpt: `content/production/ep001-tts-test-excerpt-v1.md` (~200 words, 60-90 sec)
+  - Results template: `docs/production/AI-VOICE-DECISION-RESULTS-v1.md` (10-point rubric)
+  - License policy: `content/production/licenses/tts/README.md` (hash-based evidence for public repo)
+  - Renders ignored: `content/production/renders/.gitignore` (prevents committing audio files)
+  - **User action required:** Test TTS tools, score rubric, verify licenses, update registry/baseline
+  - **Blocker:** AI voice/TTS tool still not chosen (Claude cannot generate/evaluate audio)
 - **2025-12-25**: Production tooling baseline established
   - Tooling baseline: `docs/production/TOOLING-BASELINE-v1.md` (6-stage pipeline with defaults/fallbacks)
   - Tools registry: `content/production/TOOLS-REGISTRY-v1.yml` (machine-readable)
