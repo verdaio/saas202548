@@ -4,6 +4,14 @@
 
 A content operations repository for the **Quiet Business Machines** YouTube channel — calm, sleepy documentaries about the invisible systems, logistics, and operational mechanics behind how businesses actually work.
 
+## Season 1 Plan (Active)
+
+**[Season 1 Operational Hub](docs/season-1/README.md)** — 20 episodes @ 1/week (LOCKED plan v2)
+
+- **Current Phase:** Phase 0 — Setup gate
+- **Target:** 20 longform episodes, scope-based execution
+- **Status:** Planning complete, setup gate in progress
+
 ## What This Repo Is
 
 This is **not** a software application. It is an operational hub for:

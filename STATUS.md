@@ -5,33 +5,45 @@
 
 | Metric | Value |
 |--------|-------|
-| **Current Stage** | EP001 TTS Evaluation Framework Ready (Awaiting User Testing) |
-| **Next Milestone** | Test TTS Tools + Choose Default |
-| **Last Updated** | 2025-12-25 |
-| **Scaffold Version** | v0.3.8 |
+| **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
+| **Next Milestone** | Complete Setup Gate Prerequisites |
+| **Last Updated** | 2025-12-26 |
+| **Scaffold Version** | v0.4.0 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
-| **Episodes Planned** | 6 |
+| **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
 | **Asset Storage** | Google Drive |
-| **Active Episode** | EP001 - How UPS Turned Routing Into a Machine |
+| **Active Episode** | EP001 - UPS ORION and the "no left turns" logic (Week 1) |
 
-### Stage Progression
+### Season 1 Phase Progression
 
-- [x] Scaffold created
-- [x] Channel positioning defined (Quiet Business Machines)
-- [x] First 6 video topics selected
-- [x] Asset storage configured (Google Drive)
-- [x] EP001 outline created
-- [x] EP001 script drafted (v1 complete with sources, B-roll, graphics, pacing)
-- [x] EP001 script read-through and revision (v2 complete)
-- [x] EP001 MVP production pack created (tiered assets, manifest, recording test materials)
-- [ ] EP001 recording test
-- [ ] EP001 recorded
-- [ ] EP001 published
-- [ ] First 3 videos published
-- [ ] First month analytics reviewed
+**Current Phase:** Phase 0 — Setup Gate
+
+- [x] Season 1 Plan v2 adopted and scaffolded
+- [ ] Setup Gate Prerequisites (6 items - see `docs/ops/SEASON-1-SETUP-GATE.md`)
+  - [ ] Hardware gate test (video/audio/graphics export workflow)
+  - [ ] Azure Speech + Key Vault verified
+  - [ ] Voice bake-off done; voice frozen
+  - [ ] Asset pack templates built and frozen
+  - [ ] Tracker created and active (**IN PROGRESS**)
+  - [ ] EP000 buffer meets Minimum Viable Pack definition
+- [ ] **Phase 1 (Weeks 1–4)**: Publish EP001–EP004 (locked order)
+- [ ] **Phase 2 (Weeks 5–8)**: Scale logistics + build buffer inventory (2–3 buffer episodes by Week 6)
+- [ ] **Phase 3 (Weeks 9–20)**: Season completion (Logistics EP009–EP010, then Pillar B if gate passed)
 
 ### Notes
+- **2025-12-26**: Season 1 Plan v2 adopted as operational source-of-truth
+  - **Plan file:** `docs/season-1/SEASON-1-PLAN-COMPLETE-v2.md` (LOCKED)
+  - **Operational hub:** `docs/season-1/README.md` (quick links to all Season 1 artifacts)
+  - **Execution scaffolding:** Created `content/season-1/` with episode folders (EP000, EP00A, EP00B, EP001–EP004)
+  - **Tracking documents:** Created `tracking/season-1/` (episodes, weekly-review, corrections-log, metrics, pillar-b-safety-gate)
+  - **SOPs created:** Research v2, Rights-safe Visual Sourcing, Captions Minimum, SEO/Discovery, Style Constitution v1
+  - **Voice Freeze Record:** `docs/production/VOICE-FREEZE-RECORD-v1.md` (template ready; to be filled after bake-off)
+  - **Setup Gate checklist:** `docs/ops/SEASON-1-SETUP-GATE.md` (Phase 0 prerequisites)
+  - **Compliance checklist:** `docs/ops/SEASON-1-COMPLIANCE-CHECKLIST.md` (LOCKED items enforcement)
+  - **Locked publish order:** EP001 (UPS ORION), EP002 (Last-mile economics), EP003 (Amazon same-day), EP004 (Route plans fail)
+  - **Buffer policy:** 2–3 buffer-ready episodes by Week 6 (EP000, EP00A, EP00B)
+  - **Next action:** Complete Setup Gate prerequisites before Week 1 publish
 - **2025-12-25**: TTS/AI Voice evaluation framework ready for user testing
   - Test excerpt: `content/production/ep001-tts-test-excerpt-v1.md` (~200 words, 60-90 sec)
   - Results template: `docs/production/AI-VOICE-DECISION-RESULTS-v1.md` (10-point rubric)
