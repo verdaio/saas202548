@@ -14,6 +14,83 @@ Each entry includes:
 
 ---
 
+## [v0.4.0] - 2025-12-26
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-ops-season1-plan-adopt-v1.md`
+
+### Changes
+**Operational Upgrade:** Season 1 Plan v2 adopted as operational source-of-truth with comprehensive scaffolding
+
+**1. Season 1 Plan Installation:**
+- Created `docs/season-1/SEASON-1-PLAN-COMPLETE-v2.md` (LOCKED plan — 20 episodes @ 1/week, phased execution)
+- Created `docs/season-1/README.md` (operational hub with quick links to all Season 1 artifacts)
+- Updated root `README.md` with prominent link to Season 1 Operational Hub
+
+**2. Setup Gate + Compliance:**
+- Created `docs/ops/SEASON-1-SETUP-GATE.md` (Phase 0 prerequisites: 6-item checklist)
+- Created `docs/ops/SEASON-1-COMPLIANCE-CHECKLIST.md` (maps LOCKED items to artifacts and routines)
+- Created `docs/ops/reports/season-1-setup-gate-baseline-2025-12-26.md` (baseline evidence report)
+
+**3. Execution Scaffolding:**
+- Created `content/season-1/` directory structure
+- Created episode folders: `ep000/`, `ep00a-lite/`, `ep00b-lite/`, `ep001/`, `ep002/`, `ep003/`, `ep004/`
+- Each folder includes standard templates:
+  - `script.md` (with signature framework reminders)
+  - `sources.md` (bibliography + visual credits)
+  - `claims.md` (Critical vs Narrative claims table)
+  - `visual-credits.md` (rights-safe checklist + receipts location)
+  - `qa-checklist.md` (claims QA, captions, rights-safe, SEO, signature frameworks)
+  - `export-notes.md` (export settings + WPM calibration for EP001)
+
+**4. Tracking Documents:**
+- Created `tracking/season-1/episodes.md` (locked publish order EP001-EP004 + buffer policy tracking)
+- Created `tracking/season-1/weekly-review.md` (weekly ritual template with metrics snapshot + one-change-per-week decision)
+- Created `tracking/season-1/corrections-log.md` (error tracking log with corrections policy)
+- Created `tracking/season-1/metrics.md` (draft metric bands + decision policy: CTR, retention, AVD)
+- Created `tracking/season-1/pillar-b-safety-gate.md` (gate checklist + safe subset ordering + high-risk language checklist)
+
+**5. SOPs (locked as part of Plan v2):**
+- Created `docs/ops/RESEARCH-SYSTEM-SOP-v2.md` (source tiers + Critical vs Narrative claims split)
+- Created `docs/ops/RIGHTS-SAFE-VISUAL-SOURCING-SOP.md` (visual stack + maps/logos policy + receipts storage)
+- Created `docs/ops/CAPTIONS-MINIMUM-STANDARD.md` (required correction pass: names, acronyms, numbers, meaning changes)
+- Created `docs/ops/SEO-DISCOVERY-SOP.md` (description structure + pinned comment + end screens + playlists)
+- Created `docs/production/STYLE-CONSTITUTION-v1.md` (typography, color, diagrams, maps, stat callouts — prevents drift)
+
+**6. Voice Freeze Record:**
+- Created `docs/production/VOICE-FREEZE-RECORD-v1.md` (TTS voice freeze template; to be filled after bake-off + WPM calibration)
+
+**7. Repo Status Updates:**
+- Updated `STATUS.md` to reflect Phase 0 (Setup gate) as current phase
+- Updated `docs/CHANGELOG.md` with v0.4.0 entry
+- Updated `AI-UPGRADES-LOG.md` (this file)
+
+### Verification
+- **Branch:** `ops/season1-plan-adopt-v1`
+- **Working tree status:** Clean before adoption; new files pending commit
+- **Files created:** 50+ new files (plan, SOPs, tracking, templates, episode scaffolds)
+- **Preflight checks:** PASS (no dirty tree, no overlapping files)
+- **Reconciliation:** Existing EP001 work integrated (script v2, sources, production pack)
+- **Evidence report:** `docs/ops/reports/season-1-plan-adoption-evidence-2025-12-26.md` (pending creation)
+
+### Key Outcomes
+- **Repeatable weekly machine:** All episodes now follow same structure (script → sources → claims → QA → export)
+- **LOCKED plan enforcement:** Compliance checklist ensures all LOCKED items have artifacts and routines
+- **Setup Gate prerequisites:** Phase 0 must complete before Week 1 publish
+- **Locked publish order:** EP001 (UPS ORION), EP002 (Last-mile economics), EP003 (Amazon same-day), EP004 (Route plans fail)
+- **Buffer policy:** 2–3 buffer-ready episodes by Week 6 (EP000, EP00A, EP00B)
+- **Change control:** Plan v2 is LOCKED; any changes require version bump and rationale
+
+### Next Actions
+1. Complete Setup Gate prerequisites (voice bake-off, Azure Speech, asset pack templates, EP000 buffer)
+2. Commit and create PR to `chore/kickoff-baseline-audit` (main branch)
+3. Begin Phase 1 (Weeks 1–4) after Setup Gate passes
+
+---
+
 ## [v0.3.8] - 2025-12-25
 
 ### Agent
