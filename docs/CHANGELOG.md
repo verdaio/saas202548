@@ -4,6 +4,49 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.0] - 2025-12-26
+
+### Added
+- Season 1 Plan v2 adopted as operational source-of-truth
+  - `docs/season-1/SEASON-1-PLAN-COMPLETE-v2.md` - Complete locked plan (20 episodes, phased execution)
+  - `docs/season-1/README.md` - Season 1 operational hub with quick links
+- Setup Gate and Compliance enforcement
+  - `docs/ops/SEASON-1-SETUP-GATE.md` - Phase 0 prerequisites checklist
+  - `docs/ops/SEASON-1-COMPLIANCE-CHECKLIST.md` - Maps LOCKED items to artifacts and routines
+  - `docs/ops/reports/season-1-setup-gate-baseline-2025-12-26.md` - Baseline evidence report
+- Execution scaffolding for Season 1 episodes
+  - Created `content/season-1/` directory structure
+  - Episode folders for EP000, EP00A-lite, EP00B-lite, EP001-EP004 with standard templates
+  - Each folder includes: `script.md`, `sources.md`, `claims.md`, `visual-credits.md`, `qa-checklist.md`, `export-notes.md`
+- Season 1 tracking documents
+  - `tracking/season-1/episodes.md` - Locked publish order (EP001-EP004) + buffer policy tracking
+  - `tracking/season-1/weekly-review.md` - Weekly ritual template
+  - `tracking/season-1/corrections-log.md` - Error tracking and corrections policy
+  - `tracking/season-1/metrics.md` - Metric bands + one-change-per-week decision policy
+  - `tracking/season-1/pillar-b-safety-gate.md` - Gate checklist + safe subset ordering + high-risk language checklist
+- Season 1 SOPs (locked as part of Plan v2)
+  - `docs/ops/RESEARCH-SYSTEM-SOP-v2.md` - Source tiers + Critical vs Narrative claims split
+  - `docs/ops/RIGHTS-SAFE-VISUAL-SOURCING-SOP.md` - Visual stack + maps/logos policy + receipts storage
+  - `docs/ops/CAPTIONS-MINIMUM-STANDARD.md` - Required correction pass (5-10 min/episode)
+  - `docs/ops/SEO-DISCOVERY-SOP.md` - Description structure + pinned comment + end screens
+  - `docs/production/STYLE-CONSTITUTION-v1.md` - Typography, color, diagrams, maps, stat callouts (prevents drift)
+- Voice Freeze Record
+  - `docs/production/VOICE-FREEZE-RECORD-v1.md` - TTS voice freeze template (to be filled after bake-off + WPM calibration)
+
+### Changed
+- Updated `README.md` with prominent link to Season 1 Operational Hub
+- Updated `STATUS.md` to reflect Phase 0 (Setup gate) as current phase
+
+### Notes
+- Plan v2 is LOCKED; any changes require version bump and rationale
+- Setup Gate prerequisites must pass before Week 1 publish
+- Locked publish order: EP001 (UPS ORION), EP002 (Last-mile economics), EP003 (Amazon same-day), EP004 (Route plans fail)
+- Buffer policy: 2-3 buffer-ready episodes by Week 6 (EP000, EP00A, EP00B)
+- WPM calibration required after EP001 export (critical for script length bands)
+- All execution scaffolding follows repeatable structure (script → sources → claims → QA → export)
+
+---
+
 ## [v0.3.8] - 2025-12-25
 
 ### Added
