@@ -4,6 +4,129 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.5] - 2025-12-27
+
+### Added
+- Voice selection frozen for Season 1
+  - `docs/production/AI-VOICE-FREEZE.md` - Canonical voice freeze record with change policy
+  - `tools/tts/tts.defaults.json` - Default voice configuration (Adam primary, Steffan fallback)
+  - `docs/ops/reports/voice-selection-freeze-2025-12-27.md` - Voice freeze evidence report
+
+### Changed
+- Updated `tools/tts/azure-speech-bakeoff.ps1` to load defaults from `tts.defaults.json`
+  - Reads default voices from JSON file when `-Voices` parameter not provided
+  - Maintains backwards compatibility with hard-coded defaults if file missing
+- Updated `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` with final voice selection
+  - Primary: `en-US-Adam:DragonHDLatestNeural` (score: 18/20)
+  - Fallback: `en-US-Steffan:DragonHDLatestNeural` (score: 17/20)
+- Updated `STATUS.md` to mark voice freeze complete (v0.4.5)
+
+### Notes
+- **Status:** ✓ VOICE FROZEN for Season 1 Phase 1 (EP001–EP004)
+- **Primary voice:** en-US-Adam:DragonHDLatestNeural (warm, calm tone ideal for documentary format)
+- **Fallback voice:** en-US-Steffan:DragonHDLatestNeural (richer, more narrative quality)
+- **Verification:** ✓ PASSED (Adam synthesis successful, 4,096,450 bytes)
+- **Tooling:** Defaults now load automatically from tts.defaults.json
+- **Change policy:** Any voice change requires new bake-off + updated freeze record entry
+- **Next:** Asset pack templates, tracker, EP000 buffer
+
+---
+
+## [v0.4.4] - 2025-12-27
+
+### Added
+- Azure TTS HD voice bake-off evidence (DragonHD model)
+  - `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md` - Complete HD bake-off evidence report (8 voices tested)
+  - `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml` - SSML template with prosody control and pronunciation fixes
+- Enhanced bake-off script for HD voices
+  - Added `-SsmlPath` parameter to `tools/tts/azure-speech-bakeoff.ps1`
+  - Support for colon-syntax voice names (e.g., `en-US-Andrew:DragonHDLatestNeural`)
+  - Backwards compatible with existing markdown excerpt workflow
+
+### Changed
+- Updated `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` to reflect HD voice bake-off as active round
+- Updated `STATUS.md` to mark HD bake-off complete (8 voices, awaiting voice selection)
+
+### Notes
+- **Status:** ✓ HD BAKE-OFF COMPLETE - 8 DragonHDLatestNeural voices synthesized successfully (0 errors)
+- **Voices tested:** 6 US male (Brian, Davis, Andrew, Adam, Steffan), 1 GB male (Ollie), 2 US female (Ava, Emma)
+- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\` (~34 MB, 8 WAV files + manifests)
+- **SHA256 manifest:** Generated for file integrity verification
+- **Voice model:** DragonHDLatestNeural (higher fidelity than standard Neural voices)
+- **SSML improvements:** -5% slower prosody, 250ms breaks at paragraphs, UPS spelled out, ORION IPA phoneme
+- **Supersedes:** Baseline bake-off (2025-12-26, 7 standard Neural voices) - voices not human enough
+- **Next:** Voice selection using Voice Decision Pack, then voice freeze for Season 1
+
+---
+
+## [v0.4.3] - 2025-12-27
+
+### Added
+- Azure TTS baseline voice bake-off evidence (superseded by HD round)
+  - `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md` - Baseline bake-off report (7 standard Neural voices)
+  - `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` - Voice Decision Pack for EP001
+- Voice bake-off instructions in `docs/ops/AZURE-TTS-RESOURCES.md`
+
+### Changed
+- Updated `STATUS.md` to mark Azure Speech + Key Vault verified and bake-off complete (voice selection pending)
+
+### Notes
+- **Status:** ✓ Baseline bake-off complete, replaced by HD round (voices not human enough)
+- **Voices tested:** 7 standard Neural voices (British/American/Australian accents)
+- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
+
+---
+
+## [v0.4.2] - 2025-12-27
+
+### Added
+- Azure TTS dev environment provisioning (COMPLETE)
+  - `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md` - Complete provisioning evidence report (resources + RBAC + secrets + smoke test)
+  - ✓ Resource Group: `rg-vrd-202548-dev-eus2-tts-01` (created)
+  - ✓ Key Vault: `kv-vrd-202548-dev-01` (created with RBAC)
+  - ✓ Speech Service: `cog-vrd-202548-dev-eus2-tts-01` (created, SKU: S0)
+  - ✓ RBAC Role: "Key Vault Secrets Officer" assigned (manual via Azure Portal)
+  - ✓ Secrets stored: `azure-speech-key`, `azure-speech-region`, `azure-speech-endpoint`
+  - ✓ TTS smoke test passed: en-GB-RyanNeural (4.4 MB audio file generated)
+
+### Changed
+- Updated `tools/tts/azure-speech-bakeoff.ps1` default Key Vault name: `kv-saas202548-prodops` → `kv-vrd-202548-dev-01`
+- Updated `docs/ops/AZURE-TTS-RESOURCES.md` with complete provisioning status and all 3 secret names
+
+### Notes
+- **Status:** ✓ PROVISIONING COMPLETE - All resources operational, end-to-end TTS workflow verified
+- **RBAC workaround:** Azure CLI role assignment failed with "MissingSubscription" error; manual Azure Portal assignment succeeded
+- All resources follow Verdaio Azure Naming Standard v1.2 with documented exceptions (Key Vault region omission for 24-char limit)
+- `-tts-01` slice added to Resource Group and Speech Service names for clarity
+- Smoke test output: `C:\devop\media\saas202548\tts-bakeoff\2025-12-27\azure-speech-en-GB-RyanNeural.wav` (4,418,822 bytes)
+
+---
+
+## [v0.4.1] - 2025-12-27
+
+### Added
+- Azure TTS naming compliance audit
+  - `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md` - Comprehensive naming audit report
+  - `docs/ops/AZURE-TTS-RESOURCES.md` - Azure TTS resource documentation with provisioning commands
+- Canonical Azure Naming Standard located in template system
+  - Standard: `C:\devop\new-template-system\.template-system-v2\docs\security\AZURE-NAMING-CONVENTIONS.md` (v1.2)
+  - Verdaio pattern: `{type}-{org}-{proj}-{env}-{region}-{slice}-{seq}`
+
+### Changed
+- Proposed Azure resource names updated to comply with Verdaio naming standard
+  - Resource Group: `rg-saas202548-prodops` → `rg-vrd-202548-dev-eus2`
+  - Key Vault: `kv-saas202548-prodops` → `kv-vrd-202548-dev-01`
+  - Speech Service: `spch-saas202548-prodops` → `cog-vrd-202548-dev-eus2-01`
+
+### Notes
+- No Azure resources exist yet for project 202548 (previously proposed names were blocked by auth issue)
+- No migration needed; resources can be created with compliant names from the start
+- Speech Service abbreviation (`cog` for Cognitive Services) inferred from standard (not explicitly defined)
+- Recommended to update `tools/tts/azure-speech-bakeoff.ps1` with compliant Key Vault name before provisioning
+- Template system propagation recommended: add Cognitive Services and App Insights abbreviations to naming standard
+
+---
+
 ## [v0.4.0] - 2025-12-26
 
 ### Added

@@ -7,8 +7,8 @@
 |--------|-------|
 | **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
 | **Next Milestone** | Complete Setup Gate Prerequisites |
-| **Last Updated** | 2025-12-26 |
-| **Scaffold Version** | v0.4.0 |
+| **Last Updated** | 2025-12-27 |
+| **Scaffold Version** | v0.4.5 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
@@ -22,8 +22,8 @@
 - [x] Season 1 Plan v2 adopted and scaffolded
 - [ ] Setup Gate Prerequisites (6 items - see `docs/ops/SEASON-1-SETUP-GATE.md`)
   - [ ] Hardware gate test (video/audio/graphics export workflow)
-  - [ ] Azure Speech + Key Vault verified
-  - [ ] Voice bake-off done; voice frozen
+  - [x] Azure Speech + Key Vault verified
+  - [x] Voice bake-off done; voice frozen (**COMPLETE — Adam HD primary, Steffan HD fallback**)
   - [ ] Asset pack templates built and frozen
   - [ ] Tracker created and active (**IN PROGRESS**)
   - [ ] EP000 buffer meets Minimum Viable Pack definition
@@ -32,6 +32,58 @@
 - [ ] **Phase 3 (Weeks 9–20)**: Season completion (Logistics EP009–EP010, then Pillar B if gate passed)
 
 ### Notes
+- **2025-12-27**: Voice selection frozen for Season 1
+  - Freeze record: `docs/production/AI-VOICE-FREEZE.md`
+  - Evidence report: `docs/ops/reports/voice-selection-freeze-2025-12-27.md`
+  - **Primary voice:** `en-US-Adam:DragonHDLatestNeural` (score: 18/20)
+  - **Fallback voice:** `en-US-Steffan:DragonHDLatestNeural` (score: 17/20)
+  - **Tooling integration:** Created `tools/tts/tts.defaults.json` with frozen voices
+  - **Script enhancement:** Updated `tools/tts/azure-speech-bakeoff.ps1` to load defaults
+  - **Verification:** ✓ PASSED (Adam synthesis successful, 4,096,450 bytes)
+  - **Status:** ✓ Voice frozen for EP001–EP004 (Season 1 Phase 1)
+- **2025-12-27**: Azure TTS dev environment provisioning (COMPLETE - all operational)
+  - Provisioning report: `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md`
+  - **Resources created:**
+    - ✓ Resource Group: `rg-vrd-202548-dev-eus2-tts-01` (eastus2)
+    - ✓ Key Vault: `kv-vrd-202548-dev-01` (eastus2, RBAC enabled)
+    - ✓ Speech Service: `cog-vrd-202548-dev-eus2-tts-01` (SKU: S0)
+  - **RBAC:** "Key Vault Secrets Officer" assigned manually via Portal (Azure CLI workaround)
+  - **Secrets stored:**
+    - ✓ azure-speech-key
+    - ✓ azure-speech-region (eastus2)
+    - ✓ azure-speech-endpoint (https://eastus2.tts.speech.microsoft.com)
+  - **Smoke test:** ✓ PASSED (en-GB-RyanNeural, 4.4 MB audio file generated)
+  - **Repository updates:**
+    - Updated `tools/tts/azure-speech-bakeoff.ps1` VaultName → `kv-vrd-202548-dev-01`
+    - Updated `docs/ops/AZURE-TTS-RESOURCES.md` with complete provisioning status
+  - All resources follow Verdaio Azure Naming Standard v1.2
+- **2025-12-27**: Azure TTS HD voice bake-off completed (DragonHD model)
+  - Bake-off report: `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md`
+  - **Voices tested:** 8 DragonHDLatestNeural voices (6 US male, 1 GB male, 2 US female)
+  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\` (~34 MB, 8 WAV files)
+  - **SSML template:** `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml` (prosody control, pronunciation fixes)
+  - **Script enhancements:** Added `-SsmlPath` parameter and colon-syntax support to bake-off runner
+  - **SHA256 manifest:** Generated for file integrity verification
+  - **Status:** ✓ All voices synthesized successfully (0 errors)
+  - **Next:** Voice selection using Voice Decision Pack, then voice freeze
+- **2025-12-27**: Azure TTS baseline voice bake-off completed (superseded by HD round)
+  - Bake-off report: `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`
+  - **Voices tested:** 7 standard Neural voices (British/American/Australian accents)
+  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
+  - **Status:** ✓ Completed, but replaced by DragonHD round (voices not human enough)
+- **2025-12-27**: Azure TTS naming compliance audit completed
+  - Audit report: `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md`
+  - Resource doc: `docs/ops/AZURE-TTS-RESOURCES.md` (provisioning commands with compliant names)
+  - **Finding:** No Azure resources exist for project 202548 (previously proposed names were blocked by auth)
+  - **Standard found:** Verdaio Azure Naming Standard v1.2 in template system
+  - **Non-compliant proposed names:** `rg-saas202548-prodops`, `kv-saas202548-prodops`, `spch-saas202548-prodops`
+  - **Compliant names proposed:**
+    - Resource Group: `rg-vrd-202548-dev-eus2`
+    - Key Vault: `kv-vrd-202548-dev-01`
+    - Speech Service: `cog-vrd-202548-dev-eus2-01`
+  - **No migration needed:** Resources can be created with compliant names from the start
+  - **Recommendation:** Update `tools/tts/azure-speech-bakeoff.ps1` with compliant Key Vault name before provisioning
+  - **Template system propagation:** Add Cognitive Services (`cog`) abbreviation to naming standard
 - **2025-12-26**: Season 1 Plan v2 adopted as operational source-of-truth
   - **Plan file:** `docs/season-1/SEASON-1-PLAN-COMPLETE-v2.md` (LOCKED)
   - **Operational hub:** `docs/season-1/README.md` (quick links to all Season 1 artifacts)
