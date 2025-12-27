@@ -40,7 +40,7 @@ This gate ensures:
 
 ### 2. Azure Speech + Key Vault Verified
 
-**Status:** [ ] PASS / [ ] FAIL / [ ] IN PROGRESS
+**Status:** [ ] PASS / [ ] FAIL / [X] IN PROGRESS
 
 **Requirements:**
 - [ ] Azure Speech service accessible and functional
@@ -48,7 +48,11 @@ This gate ensures:
 - [ ] TTS API call tested successfully (generates audio from test excerpt)
 - [ ] Cost estimates validated (within budget for 20 episodes)
 
-**Evidence Location:** `docs/ops/reports/season-1-setup-gate-baseline-YYYY-MM-DD.md`
+**Tools:**
+- Bake-off runner: `tools/tts/azure-speech-bakeoff.ps1`
+- Documentation: `tools/tts/README.md`
+
+**Evidence Location:** `docs/ops/reports/phase0-setup-gate-azure-voice-bakeoff-2025-12-26.md`
 
 **Blocker if FAIL:** Cannot generate audio without Azure Speech access
 
@@ -56,7 +60,7 @@ This gate ensures:
 
 ### 3. Voice Bake-off Done; Voice Frozen
 
-**Status:** [ ] PASS / [ ] FAIL / [ ] IN PROGRESS
+**Status:** [ ] PASS / [ ] FAIL / [X] IN PROGRESS
 
 **Requirements:**
 - [ ] TTS voice bake-off completed using `docs/production/AI-VOICE-DECISION-v1.md` framework
@@ -64,6 +68,9 @@ This gate ensures:
 - [ ] SSML settings frozen (rate, pitch, style)
 - [ ] Licensing verified (commercial YouTube use allowed)
 - [ ] Voice Freeze Record v1 created and committed
+
+**Bake-off Runs:**
+- 2025-12-26: `content/production/tts-bakeoff/2025-12-26/MANIFEST.md` (pending execution)
 
 **Evidence Location:**
 - `docs/production/AI-VOICE-DECISION-RESULTS-v1.md` (bake-off results)

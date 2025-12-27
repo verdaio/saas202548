@@ -135,6 +135,31 @@ This record documents the frozen TTS voice and settings for all Season 1 episode
 
 ---
 
+## Bake-off Runs
+
+### Run 2025-12-26 (Phase 0 Setup Gate)
+
+**Status:** Pending execution
+
+**Purpose:** Initial voice evaluation for Season 1
+
+**Manifest:** `content/production/tts-bakeoff/2025-12-26/MANIFEST.md`
+
+**Voices Tested:**
+- British male voices: `en-GB-RyanNeural`, `en-GB-ThomasNeural`, `en-GB-AlfieNeural`, `en-GB-EthanNeural`, `en-GB-NoahNeural`
+- Alternates: `en-US-GuyNeural`, `en-AU-WilliamNeural`
+
+**Audio Location (local, NOT in git):** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\`
+
+**Next Steps:**
+1. Execute bake-off: `.\tools\tts\azure-speech-bakeoff.ps1`
+2. Listen to all samples
+3. Complete rubric evaluation
+4. Update "Selected Voice" section above with chosen voice
+5. Update AI Voice Decision Results
+
+---
+
 ## Pronunciation Overrides
 
 **Purpose:** Document any custom pronunciation overrides needed for consistency.

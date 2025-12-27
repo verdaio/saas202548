@@ -43,6 +43,28 @@
 
 ---
 
+## Phase 0 Setup Gate
+
+**Current Status:** IN PROGRESS
+
+Phase 0 tasks and automation:
+
+### Core Documentation
+- [Setup Gate Checklist](../ops/SEASON-1-SETUP-GATE.md) — Phase 0 prerequisites with PASS/FAIL status
+- [Voice Freeze Record v1](../production/VOICE-FREEZE-RECORD-v1.md) — Voice selection and SSML settings
+
+### Tools & Automation
+- [TTS Bake-off Runner](../../tools/tts/README.md) — Azure Speech voice evaluation tool
+- [Media Warehouse Paths](../ops/MEDIA-WAREHOUSE-PATHS.md) — Local media storage conventions
+
+### Bake-off Runs
+- [2025-12-26 Bake-off](../../content/production/tts-bakeoff/2025-12-26/MANIFEST.md) — Initial voice evaluation
+
+### Evidence Reports
+- [Phase 0 Setup Gate Report — 2025-12-26](../ops/reports/phase0-setup-gate-azure-voice-bakeoff-2025-12-26.md) — Azure Speech + bake-off runner setup
+
+---
+
 ## LOCKED Plan Notice
 
 The **Season 1 Plan Complete v2** is **LOCKED**.
