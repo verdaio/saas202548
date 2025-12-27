@@ -120,5 +120,19 @@ All tooling defaults to Adam unless explicitly overridden with `-Voices` paramet
 
 ---
 
+## Re-evaluation Triggers
+
+**Do NOT change voice casually.** Only re-evaluate if one of the following occurs:
+
+- **Audible quality regression** vs. bake-off baseline (voice degrades or sounds different)
+- **Azure deprecates/changes the voice** (vendor notification of model retirement or modification)
+- **Cost spikes materially** (define threshold: 2x expected cost for dev/testing)
+- **Script/narration style changes** (new pacing/energy requirements incompatible with Adam)
+- **Pronunciation regressions** on acronyms/numbers requiring heavy SSML workarounds
+
+If a trigger occurs, document the issue and run a new bake-off before making any voice change.
+
+---
+
 **Last Updated:** 2025-12-27
 **Next Review:** End of Season 1 (Week 20) or if pronunciation issues detected
