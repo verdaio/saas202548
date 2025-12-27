@@ -11,6 +11,10 @@
     Path to the test excerpt markdown file
     Default: content/production/ep001-tts-test-excerpt-v1.md
 
+.PARAMETER SsmlPath
+    Optional path to SSML template file (contains VOICE_NAME_PLACEHOLDER)
+    When specified, bypasses ExcerptPath and uses SSML directly
+
 .PARAMETER OutDir
     Output directory for audio files (must be outside git repo)
     Default: C:\devop\media\saas202548\tts-bakeoff\2025-12-26
@@ -40,6 +44,9 @@
 param(
     [Parameter()]
     [string]$ExcerptPath = "content\production\ep001-tts-test-excerpt-v1.md",
+
+    [Parameter()]
+    [string]$SsmlPath = "",
 
     [Parameter()]
     [string]$OutDir = "C:\devop\media\saas202548\tts-bakeoff\2025-12-26",
@@ -247,23 +254,52 @@ if (-not (Test-Path $OutDir)) {
     Write-StatusMessage "Using existing output directory: $OutDir"
 }
 
-# 3. Resolve excerpt path
-if (-not [System.IO.Path]::IsPathRooted($ExcerptPath)) {
-    $repoRoot = Get-GitRepoRoot
-    if ($repoRoot) {
-        $ExcerptPath = Join-Path $repoRoot $ExcerptPath
-    }
-}
+# 3. Determine input source (SSML template or markdown excerpt)
+$useSsmlTemplate = -not [string]::IsNullOrWhiteSpace($SsmlPath)
+$excerptText = $null
+$excerptHash = $null
+$ssmlTemplate = $null
 
-# 4. Extract text from excerpt
-Write-StatusMessage "Loading test excerpt..."
-try {
-    $excerptText = Get-ExcerptText -Path $ExcerptPath
-    $excerptHash = Get-ContentHash -Content $excerptText
-    Write-StatusMessage "Loaded excerpt (${excerptText.Length} chars, hash: $excerptHash)" -Type Success
-} catch {
-    Write-StatusMessage $_.Exception.Message -Type Error
-    exit 1
+if ($useSsmlTemplate) {
+    # Resolve SSML template path
+    if (-not [System.IO.Path]::IsPathRooted($SsmlPath)) {
+        $repoRoot = Get-GitRepoRoot
+        if ($repoRoot) {
+            $SsmlPath = Join-Path $repoRoot $SsmlPath
+        }
+    }
+
+    Write-StatusMessage "Loading SSML template..."
+    try {
+        if (-not (Test-Path $SsmlPath)) {
+            throw "SSML template file not found: $SsmlPath"
+        }
+        $ssmlTemplate = Get-Content -Path $SsmlPath -Raw
+        $excerptHash = Get-ContentHash -Content $ssmlTemplate
+        Write-StatusMessage "Loaded SSML template (${ssmlTemplate.Length} chars, hash: $excerptHash)" -Type Success
+    } catch {
+        Write-StatusMessage $_.Exception.Message -Type Error
+        exit 1
+    }
+} else {
+    # Resolve excerpt path
+    if (-not [System.IO.Path]::IsPathRooted($ExcerptPath)) {
+        $repoRoot = Get-GitRepoRoot
+        if ($repoRoot) {
+            $ExcerptPath = Join-Path $repoRoot $ExcerptPath
+        }
+    }
+
+    # 4. Extract text from excerpt
+    Write-StatusMessage "Loading test excerpt..."
+    try {
+        $excerptText = Get-ExcerptText -Path $ExcerptPath
+        $excerptHash = Get-ContentHash -Content $excerptText
+        Write-StatusMessage "Loaded excerpt (${excerptText.Length} chars, hash: $excerptHash)" -Type Success
+    } catch {
+        Write-StatusMessage $_.Exception.Message -Type Error
+        exit 1
+    }
 }
 
 # 5. Retrieve Azure credentials from Key Vault
@@ -281,7 +317,8 @@ try {
 $manifest = @{
     generated = Get-Date -Format "o"
     excerpt_hash = $excerptHash
-    excerpt_path = $ExcerptPath
+    source_type = if ($useSsmlTemplate) { "ssml_template" } else { "markdown_excerpt" }
+    source_path = if ($useSsmlTemplate) { $SsmlPath } else { $ExcerptPath }
     vault_name = $VaultName
     region = $speechRegion
     voices = @()
@@ -298,11 +335,20 @@ foreach ($voice in $Voices) {
     Write-StatusMessage "Processing voice: $voice"
 
     try {
-        # Generate SSML
-        $ssml = ConvertTo-SSML -Text $excerptText -Voice $voice -Style "default"
+        # Generate SSML (template or dynamic)
+        if ($useSsmlTemplate) {
+            # Replace placeholder with actual voice name
+            $ssml = $ssmlTemplate -replace 'VOICE_NAME_PLACEHOLDER', $voice
+        } else {
+            # Generate SSML from excerpt text
+            $ssml = ConvertTo-SSML -Text $excerptText -Voice $voice -Style "default"
+        }
+
+        # Sanitize voice name for filename (replace colon with hyphen for HD voices)
+        $safeVoiceName = $voice -replace ':', '-'
 
         # Determine output filename
-        $filename = "ep001-excerpt__${voice}__style-default.wav"
+        $filename = "ep001-excerpt__${safeVoiceName}__style-default.wav"
         $outputPath = Join-Path $OutDir $filename
 
         # Call Azure Speech API

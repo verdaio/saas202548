@@ -4,23 +4,48 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.4] - 2025-12-27
+
+### Added
+- Azure TTS HD voice bake-off evidence (DragonHD model)
+  - `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md` - Complete HD bake-off evidence report (8 voices tested)
+  - `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml` - SSML template with prosody control and pronunciation fixes
+- Enhanced bake-off script for HD voices
+  - Added `-SsmlPath` parameter to `tools/tts/azure-speech-bakeoff.ps1`
+  - Support for colon-syntax voice names (e.g., `en-US-Andrew:DragonHDLatestNeural`)
+  - Backwards compatible with existing markdown excerpt workflow
+
+### Changed
+- Updated `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` to reflect HD voice bake-off as active round
+- Updated `STATUS.md` to mark HD bake-off complete (8 voices, awaiting voice selection)
+
+### Notes
+- **Status:** ✓ HD BAKE-OFF COMPLETE - 8 DragonHDLatestNeural voices synthesized successfully (0 errors)
+- **Voices tested:** 6 US male (Brian, Davis, Andrew, Adam, Steffan), 1 GB male (Ollie), 2 US female (Ava, Emma)
+- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\` (~34 MB, 8 WAV files + manifests)
+- **SHA256 manifest:** Generated for file integrity verification
+- **Voice model:** DragonHDLatestNeural (higher fidelity than standard Neural voices)
+- **SSML improvements:** -5% slower prosody, 250ms breaks at paragraphs, UPS spelled out, ORION IPA phoneme
+- **Supersedes:** Baseline bake-off (2025-12-26, 7 standard Neural voices) - voices not human enough
+- **Next:** Voice selection using Voice Decision Pack, then voice freeze for Season 1
+
+---
+
 ## [v0.4.3] - 2025-12-27
 
 ### Added
-- Azure TTS voice bake-off evidence
-  - `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md` - Full bake-off evidence report (7 voices tested)
-  - Voice Decision Pack for EP001 (pending creation)
+- Azure TTS baseline voice bake-off evidence (superseded by HD round)
+  - `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md` - Baseline bake-off report (7 standard Neural voices)
+  - `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` - Voice Decision Pack for EP001
 - Voice bake-off instructions in `docs/ops/AZURE-TTS-RESOURCES.md`
 
 ### Changed
 - Updated `STATUS.md` to mark Azure Speech + Key Vault verified and bake-off complete (voice selection pending)
 
 ### Notes
-- **Status:** ✓ BAKE-OFF COMPLETE - 7 voices synthesized successfully
-- **Voices tested:** en-GB-RyanNeural, en-GB-ThomasNeural, en-GB-SoniaNeural, en-US-GuyNeural, en-US-AriaNeural, en-US-JennyNeural, en-AU-WilliamNeural
-- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files + manifests)
-- **SHA256 manifest:** Generated for file integrity verification (safe to document hashes)
-- **Next:** Voice selection using Voice Decision Pack, then voice freeze for Season 1
+- **Status:** ✓ Baseline bake-off complete, replaced by HD round (voices not human enough)
+- **Voices tested:** 7 standard Neural voices (British/American/Australian accents)
+- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
 
 ---
 

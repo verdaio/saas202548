@@ -8,7 +8,7 @@
 | **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
 | **Next Milestone** | Complete Setup Gate Prerequisites |
 | **Last Updated** | 2025-12-27 |
-| **Scaffold Version** | v0.4.2 |
+| **Scaffold Version** | v0.4.4 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
@@ -23,7 +23,7 @@
 - [ ] Setup Gate Prerequisites (6 items - see `docs/ops/SEASON-1-SETUP-GATE.md`)
   - [ ] Hardware gate test (video/audio/graphics export workflow)
   - [x] Azure Speech + Key Vault verified
-  - [ ] Voice bake-off done; voice frozen (**BAKE-OFF COMPLETE - awaiting voice selection**)
+  - [ ] Voice bake-off done; voice frozen (**HD BAKE-OFF COMPLETE - 8 voices tested - awaiting voice selection**)
   - [ ] Asset pack templates built and frozen
   - [ ] Tracker created and active (**IN PROGRESS**)
   - [ ] EP000 buffer meets Minimum Viable Pack definition
@@ -48,13 +48,20 @@
     - Updated `tools/tts/azure-speech-bakeoff.ps1` VaultName → `kv-vrd-202548-dev-01`
     - Updated `docs/ops/AZURE-TTS-RESOURCES.md` with complete provisioning status
   - All resources follow Verdaio Azure Naming Standard v1.2
-- **2025-12-27**: Azure TTS voice bake-off completed
-  - Bake-off report: `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`
-  - **Voices tested:** 7 (en-GB-RyanNeural, en-GB-ThomasNeural, en-GB-SoniaNeural, en-US-GuyNeural, en-US-AriaNeural, en-US-JennyNeural, en-AU-WilliamNeural)
-  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
+- **2025-12-27**: Azure TTS HD voice bake-off completed (DragonHD model)
+  - Bake-off report: `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md`
+  - **Voices tested:** 8 DragonHDLatestNeural voices (6 US male, 1 GB male, 2 US female)
+  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\` (~34 MB, 8 WAV files)
+  - **SSML template:** `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml` (prosody control, pronunciation fixes)
+  - **Script enhancements:** Added `-SsmlPath` parameter and colon-syntax support to bake-off runner
   - **SHA256 manifest:** Generated for file integrity verification
   - **Status:** ✓ All voices synthesized successfully (0 errors)
   - **Next:** Voice selection using Voice Decision Pack, then voice freeze
+- **2025-12-27**: Azure TTS baseline voice bake-off completed (superseded by HD round)
+  - Bake-off report: `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`
+  - **Voices tested:** 7 standard Neural voices (British/American/Australian accents)
+  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
+  - **Status:** ✓ Completed, but replaced by DragonHD round (voices not human enough)
 - **2025-12-27**: Azure TTS naming compliance audit completed
   - Audit report: `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md`
   - Resource doc: `docs/ops/AZURE-TTS-RESOURCES.md` (provisioning commands with compliant names)

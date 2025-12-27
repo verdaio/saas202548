@@ -14,6 +14,101 @@ Each entry includes:
 
 ---
 
+## [v0.4.4] - 2025-12-27
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-azure-tts-hd-bakeoff-v1.md`
+
+### Changes
+**Operational Upgrade:** Azure TTS HD voice bake-off completed (8 DragonHDLatestNeural voices) + SSML template + enhanced bake-off script
+
+**1. HD Voice Discovery:**
+- ✓ Discovered 64 DragonHD voices available in eastus2 region
+- ✓ Authenticated API call via Key Vault credentials
+- ✓ Found 23 en-US + 1 en-GB DragonHDLatestNeural voices
+
+**2. Curated Candidate Set:**
+- ✓ Selected 8 voices for bake-off (male-first strategy)
+- 6 US male: Brian, Davis, Andrew, Adam, Steffan
+- 1 GB male: Ollie
+- 2 US female: Ava, Emma
+
+**3. SSML Template Created:**
+- ✓ Created `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml`
+- Features: -5% slower prosody, 250ms breaks at paragraphs
+- Pronunciation fixes: UPS (spelled out), ORION (IPA phoneme)
+- VOICE_NAME_PLACEHOLDER for template substitution
+
+**4. Enhanced Bake-Off Script:**
+- ✓ Updated `tools/tts/azure-speech-bakeoff.ps1`
+- Added `-SsmlPath` parameter for SSML template input
+- Support for colon-syntax voice names (replaces `:` with `-` in filenames)
+- Backwards compatible with markdown excerpt workflow
+- Manifest tracks source type (ssml_template vs markdown_excerpt)
+
+**5. HD Voice Bake-Off Execution:**
+- ✓ Ran full bake-off with 8 DragonHD voices
+- ✓ All voices synthesized successfully (0 errors)
+- ✓ Total duration: ~3 min 21 sec
+- ✓ Total output: ~34 MB (8 WAV files)
+
+**Voices Tested:**
+- `en-US-Brian:DragonHDLatestNeural` — 4,404,892 bytes
+- `en-US-Davis:DragonHDLatestNeural` — 3,750,802 bytes
+- `en-US-Andrew:DragonHDLatestNeural` — 4,199,942 bytes
+- `en-US-Adam:DragonHDLatestNeural` — 3,930,194 bytes
+- `en-US-Steffan:DragonHDLatestNeural` — 4,488,654 bytes
+- `en-GB-Ollie:DragonHDLatestNeural` — 4,414,280 bytes
+- `en-US-Ava:DragonHDLatestNeural` — 4,525,828 bytes
+- `en-US-Emma:DragonHDLatestNeural` — 4,313,508 bytes
+
+**6. Deterministic Manifest Generated:**
+- ✓ SHA256 manifest created: `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\SHA256SUMS.txt`
+- ✓ Contains: SHA256 hash + filename for all 8 WAV files
+- ✓ Safe to document (hashes contain no sensitive data)
+
+**7. Media Warehouse:**
+- ✓ All audio files stored OUTSIDE git repository
+- ✓ Path: `C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\`
+- ✓ Git safety verified (no *.wav files staged or committed)
+
+**8. Documentation Updates:**
+- Created `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md`:
+  - Complete HD bake-off evidence report
+  - Voice comparison table with file sizes
+  - SSML template documentation
+  - Script enhancements summary
+  - SHA256 manifest documentation
+  - Execution timeline
+- Updated `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md`:
+  - Marked HD bake-off as active round
+  - Updated audio files location to HD folder
+  - Updated voice scoring worksheet with 8 HD voices
+  - Marked baseline bake-off as superseded
+- Updated `STATUS.md`:
+  - Marked HD bake-off complete (8 voices tested)
+  - Added HD bake-off note with details
+  - Marked baseline bake-off as superseded (voices not human enough)
+  - Updated scaffold version to v0.4.4
+- Updated `docs/CHANGELOG.md` (v0.4.4)
+- Updated `AI-UPGRADES-LOG.md` (this file)
+
+### Verification
+- **HD voices discovered:** PASS (64 DragonHD voices found)
+- **SSML template created:** PASS (1,532 chars, hash: CA359B76980865BD527A02A7B35C0106)
+- **Script enhanced:** PASS (-SsmlPath parameter added, colon support added)
+- **HD bake-off run:** PASS (8/8 voices successful, 0 errors)
+- **SHA256 manifest:** PASS (8 entries)
+- **Media warehouse:** PASS (files outside git)
+- **Docs updated:** PASS (5 files modified/created)
+
+**Next:** Voice selection using Voice Decision Pack, then voice freeze for Season 1
+
+---
+
 ## [v0.4.3] - 2025-12-27
 
 ### Agent

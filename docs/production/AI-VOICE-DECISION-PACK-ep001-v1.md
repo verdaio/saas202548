@@ -1,10 +1,27 @@
 # AI Voice Decision Pack - EP001
-## Azure Speech Voice Bake-Off (7 Voices)
+
+## 🎯 ACTIVE: HD Voice Bake-Off (8 DragonHD Voices)
 
 **Date:** 2025-12-27
-**Purpose:** Select final voice for Season 1 (EP001-EP004)
+**Purpose:** Select final HD voice for Season 1 (EP001-EP004)
+**Test Excerpt:** `content/production/ep001-tts-hd-bakeoff-ssml-v1.xml` (SSML template with prosody control)
+**Bake-Off Report:** `docs/ops/reports/azure-tts-hd-bakeoff-2025-12-27.md`
+
+**Voices tested:**
+- 6 US male voices: Brian, Davis, Andrew, Adam, Steffan
+- 1 GB male voice: Ollie
+- 2 US female voices: Ava, Emma
+
+**Voice model:** DragonHDLatestNeural (higher fidelity than baseline Neural voices)
+
+---
+
+## ⚠️ SUPERSEDED: Baseline Voice Bake-Off (7 Standard Neural Voices)
+
+**Date:** 2025-12-26 (replaced by HD round on 2025-12-27)
 **Test Excerpt:** `content/production/ep001-tts-test-excerpt-v1.md` (~200 words, 60-90 sec)
 **Bake-Off Report:** `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`
+**Status:** Superseded by HD voice bake-off (voices not human enough)
 
 ---
 
@@ -48,23 +65,28 @@ If still tied, use these:
 
 ## Audio Files Location
 
+### 🎯 HD Voice Bake-Off (Active)
 **Media Warehouse Path:**
 ```
-C:\devop\media\saas202548\tts-bakeoff\2025-12-26\
+C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\
 ```
 
-**Files:**
-- `ep001-excerpt__en-GB-RyanNeural__style-default.wav` (4.4 MB)
-- `ep001-excerpt__en-GB-ThomasNeural__style-default.wav` (4.4 MB)
-- `ep001-excerpt__en-GB-SoniaNeural__style-default.wav` (4.2 MB)
-- `ep001-excerpt__en-US-GuyNeural__style-default.wav` (4.3 MB)
-- `ep001-excerpt__en-US-AriaNeural__style-default.wav` (4.5 MB)
-- `ep001-excerpt__en-US-JennyNeural__style-default.wav` (4.4 MB)
-- `ep001-excerpt__en-AU-WilliamNeural__style-default.wav` (3.9 MB)
+**Files (8 voices, ~34 MB total):**
+- `ep001-excerpt__en-US-Brian-DragonHDLatestNeural__style-default.wav` (4.4 MB)
+- `ep001-excerpt__en-US-Davis-DragonHDLatestNeural__style-default.wav` (3.8 MB)
+- `ep001-excerpt__en-US-Andrew-DragonHDLatestNeural__style-default.wav` (4.2 MB)
+- `ep001-excerpt__en-US-Adam-DragonHDLatestNeural__style-default.wav` (3.9 MB)
+- `ep001-excerpt__en-US-Steffan-DragonHDLatestNeural__style-default.wav` (4.5 MB)
+- `ep001-excerpt__en-GB-Ollie-DragonHDLatestNeural__style-default.wav` (4.4 MB)
+- `ep001-excerpt__en-US-Ava-DragonHDLatestNeural__style-default.wav` (4.5 MB)
+- `ep001-excerpt__en-US-Emma-DragonHDLatestNeural__style-default.wav` (4.3 MB)
 
 **Manifest Files:**
-- `manifest.json` — Metadata (voices, sizes, timestamps)
-- `manifest.sha256.tsv` — SHA256 hashes for integrity verification
+- `manifest.json` — Metadata (voices, sizes, timestamps, SSML source)
+- `SHA256SUMS.txt` — SHA256 hashes for integrity verification
+
+### Baseline Bake-Off (Superseded)
+**Path:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (7 standard Neural voices)
 
 ---
 
@@ -77,17 +99,18 @@ C:\devop\media\saas202548\tts-bakeoff\2025-12-26\
 - **2** = Below expectations, noticeable issues
 - **1** = Poor, major problems
 
-### Voice Comparison Table
+### Voice Comparison Table (HD Voices)
 
 | Voice | Accent | Gender | First Pass | Naturalness | Consistency | Pronunciation | Fatigue | Total | Notes |
 |-------|--------|--------|------------|-------------|-------------|---------------|---------|-------|-------|
-| **en-GB-RyanNeural** | British | Male | ✓/? /✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-GB-ThomasNeural** | British | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-GB-SoniaNeural** | British | Female | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-US-GuyNeural** | American | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-US-AriaNeural** | American | Female | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-US-JennyNeural** | American | Female | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
-| **en-AU-WilliamNeural** | Australian | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Brian:DragonHDLatestNeural** | US | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Davis:DragonHDLatestNeural** | US | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Andrew:DragonHDLatestNeural** | US | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Adam:DragonHDLatestNeural** | US | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Steffan:DragonHDLatestNeural** | US | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-GB-Ollie:DragonHDLatestNeural** | GB | Male | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Ava:DragonHDLatestNeural** | US | Female | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
+| **en-US-Emma:DragonHDLatestNeural** | US | Female | ✓/?/✗ | 1-5 | 1-5 | 1-5 | 1-5 | /20 | |
 
 ### Criteria Definitions
 
