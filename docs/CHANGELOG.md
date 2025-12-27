@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.3] - 2025-12-27
+
+### Added
+- Azure TTS voice bake-off evidence
+  - `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md` - Full bake-off evidence report (7 voices tested)
+  - Voice Decision Pack for EP001 (pending creation)
+- Voice bake-off instructions in `docs/ops/AZURE-TTS-RESOURCES.md`
+
+### Changed
+- Updated `STATUS.md` to mark Azure Speech + Key Vault verified and bake-off complete (voice selection pending)
+
+### Notes
+- **Status:** ✓ BAKE-OFF COMPLETE - 7 voices synthesized successfully
+- **Voices tested:** en-GB-RyanNeural, en-GB-ThomasNeural, en-GB-SoniaNeural, en-US-GuyNeural, en-US-AriaNeural, en-US-JennyNeural, en-AU-WilliamNeural
+- **Output location:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files + manifests)
+- **SHA256 manifest:** Generated for file integrity verification (safe to document hashes)
+- **Next:** Voice selection using Voice Decision Pack, then voice freeze for Season 1
+
+---
+
 ## [v0.4.2] - 2025-12-27
 
 ### Added

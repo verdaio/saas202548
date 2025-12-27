@@ -235,6 +235,90 @@ az keyvault secret show \
 - Manifest JSON generated
 - No errors in PowerShell output
 
+---
+
+## Voice Bake-Off
+
+### Full Bake-Off Run (7 Default Voices)
+
+```powershell
+# Run with all 7 default voices
+.\tools\tts\azure-speech-bakeoff.ps1
+```
+
+**Default Voices:**
+- `en-GB-RyanNeural` (British male)
+- `en-GB-ThomasNeural` (British male)
+- `en-GB-AlfieNeural` (British male)
+- `en-GB-EthanNeural` (British male)
+- `en-GB-NoahNeural` (British male)
+- `en-US-GuyNeural` (American male)
+- `en-AU-WilliamNeural` (Australian male)
+
+**Custom Voice List:**
+```powershell
+# Run with specific voices
+.\tools\tts\azure-speech-bakeoff.ps1 -Voices @(
+  "en-GB-RyanNeural",
+  "en-GB-ThomasNeural",
+  "en-GB-SoniaNeural",
+  "en-US-GuyNeural",
+  "en-US-AriaNeural",
+  "en-US-JennyNeural",
+  "en-AU-WilliamNeural"
+)
+```
+
+### Output Location
+
+**Media Warehouse Path:**
+```
+C:\devop\media\saas202548\tts-bakeoff\<YYYY-MM-DD>\
+```
+
+**Files Generated:**
+- `*.wav` — Audio samples for each voice
+- `manifest.json` — Metadata (voices, file sizes, timestamps)
+- `manifest.sha256.tsv` — SHA256 hashes for integrity verification
+
+**IMPORTANT:** Audio files are stored OUTSIDE git repository.
+
+### Post-Bake-Off Steps
+
+1. **Generate SHA256 Manifest:**
+   ```powershell
+   $dir = "C:\devop\media\saas202548\tts-bakeoff\<YYYY-MM-DD>"
+   $manifest = Join-Path $dir "manifest.sha256.tsv"
+   $timestamp = Get-Date -Format "o"
+
+   "# Azure Speech TTS Bake-off SHA256 Manifest" | Out-File -Encoding utf8 $manifest
+   "# Generated: $timestamp" | Out-File -Encoding utf8 -Append $manifest
+   "" | Out-File -Encoding utf8 -Append $manifest
+   "file`tsize_bytes`tsha256" | Out-File -Encoding utf8 -Append $manifest
+
+   Get-ChildItem $dir -File -Filter "*.wav" | Sort-Object Name | ForEach-Object {
+       $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+       "$($_.Name)`t$($_.Length)`t$hash" | Out-File -Encoding utf8 -Append $manifest
+   }
+   ```
+
+2. **Voice Selection:**
+   - Use Voice Decision Pack: `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md`
+   - Listen to all voices
+   - Score against rubric
+   - Update Voice Freeze Record: `docs/production/VOICE-FREEZE-RECORD-v1.md`
+
+3. **Evidence Documentation:**
+   - Create bake-off report: `docs/ops/reports/azure-tts-bakeoff-<YYYY-MM-DD>.md`
+   - Update STATUS.md
+   - Update CHANGELOG.md and AI-UPGRADES-LOG.md
+
+### Bake-Off History
+
+| Date | Voices Tested | Status | Report |
+|------|---------------|--------|--------|
+| 2025-12-27 | 7 (4 GB, 2 US, 1 AU) | ✓ Complete | [azure-tts-bakeoff-2025-12-27.md](reports/azure-tts-bakeoff-2025-12-27.md) |
+
 ### Manual API Test
 
 ```bash

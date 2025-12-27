@@ -14,6 +14,90 @@ Each entry includes:
 
 ---
 
+## [v0.4.3] - 2025-12-27
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-azure-tts-bakeoff-template-fix-v1.md` (Parts A-B)
+
+### Changes
+**Operational Upgrade:** Azure TTS voice bake-off completed (7 voices) + deterministic manifest + PR created
+
+**1. GitHub PR Created:**
+- ✓ PR #18: "chore(azure): provision Azure TTS dev + KV secrets + smoke test"
+- Base branch: `chore/kickoff-baseline-audit`
+- Head branch: `ops/phase0-setup-gate-azure-voice-bakeoff-v1`
+- URL: https://github.com/verdaio/saas202548/pull/18
+
+**2. Voice Bake-Off Execution:**
+- ✓ Ran full bake-off with 7 voices (4 British, 2 American, 1 Australian)
+- ✓ All voices synthesized successfully (0 errors, 0 retries)
+- ✓ Total duration: ~30 seconds
+- ✓ Total output: ~30 MB (7 WAV files)
+
+**Voices Tested:**
+- `en-GB-RyanNeural` (British male) — 4,418,822 bytes
+- `en-GB-ThomasNeural` (British male) — 4,369,448 bytes
+- `en-GB-SoniaNeural` (British female) — 4,191,816 bytes
+- `en-US-GuyNeural` (American male) — 4,349,984 bytes
+- `en-US-AriaNeural` (American female) — 4,503,852 bytes
+- `en-US-JennyNeural` (American female) — 4,396,428 bytes
+- `en-AU-WilliamNeural` (Australian male) — 3,916,962 bytes
+
+**3. Deterministic Manifest Generated:**
+- ✓ SHA256 manifest created: `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\manifest.sha256.tsv`
+- ✓ Contains: filename, size_bytes, SHA256 hash for all 7 WAV files
+- ✓ Safe to document (hashes contain no sensitive data)
+
+**4. Media Warehouse:**
+- ✓ All audio files stored OUTSIDE git repository
+- ✓ Path: `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\`
+- ✓ Git safety verified (no *.wav files staged or committed)
+
+**5. Documentation Updates:**
+- Created `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`:
+  - Full bake-off evidence report
+  - Voice comparison table
+  - SHA256 manifest documentation
+  - Execution timeline
+  - Next steps (voice selection)
+- Updated `docs/ops/AZURE-TTS-RESOURCES.md`:
+  - Added Voice Bake-Off section
+  - Full bake-off run instructions
+  - Custom voice list examples
+  - Post-bake-off steps (SHA256 manifest, voice selection, evidence docs)
+  - Bake-off history table
+- Updated `STATUS.md`:
+  - Marked "Azure Speech + Key Vault verified" as complete
+  - Marked "Voice bake-off done" as in progress (bake-off complete, voice selection pending)
+  - Added bake-off completion note with details
+- Updated `docs/CHANGELOG.md` (v0.4.3)
+- Updated `AI-UPGRADES-LOG.md` (this file)
+
+### Verification
+- **PR created:** PASS (PR #18)
+- **Voice bake-off run:** PASS (7/7 voices successful)
+- **SHA256 manifest:** PASS (all 7 files hashed)
+- **Git safety:** PASS (no audio files in git)
+- **Documentation updated:** PASS (all required docs updated)
+
+### Key Outcomes
+- **7 voices successfully synthesized** with Azure Speech Service
+- **Deterministic manifest** (SHA256 hashes) for file integrity verification
+- **Zero git pollution** (all audio files in media warehouse)
+- **Complete evidence trail** for bake-off execution
+- **Voice selection ready** (awaiting human listening + Voice Decision Pack)
+
+### Next Actions
+1. **Create Voice Decision Pack** worksheet for Chris (Part C)
+2. **Voice selection** using rubric + listening
+3. **Voice freeze** documentation for Season 1
+4. **Template system updates** (Part D) to prevent recurrence
+
+---
+
 ## [v0.4.2] - 2025-12-27
 
 ### Agent

@@ -22,8 +22,8 @@
 - [x] Season 1 Plan v2 adopted and scaffolded
 - [ ] Setup Gate Prerequisites (6 items - see `docs/ops/SEASON-1-SETUP-GATE.md`)
   - [ ] Hardware gate test (video/audio/graphics export workflow)
-  - [ ] Azure Speech + Key Vault verified
-  - [ ] Voice bake-off done; voice frozen
+  - [x] Azure Speech + Key Vault verified
+  - [ ] Voice bake-off done; voice frozen (**BAKE-OFF COMPLETE - awaiting voice selection**)
   - [ ] Asset pack templates built and frozen
   - [ ] Tracker created and active (**IN PROGRESS**)
   - [ ] EP000 buffer meets Minimum Viable Pack definition
@@ -48,7 +48,13 @@
     - Updated `tools/tts/azure-speech-bakeoff.ps1` VaultName → `kv-vrd-202548-dev-01`
     - Updated `docs/ops/AZURE-TTS-RESOURCES.md` with complete provisioning status
   - All resources follow Verdaio Azure Naming Standard v1.2
-  - **Next:** Run full voice bake-off with all 7 default voices
+- **2025-12-27**: Azure TTS voice bake-off completed
+  - Bake-off report: `docs/ops/reports/azure-tts-bakeoff-2025-12-27.md`
+  - **Voices tested:** 7 (en-GB-RyanNeural, en-GB-ThomasNeural, en-GB-SoniaNeural, en-US-GuyNeural, en-US-AriaNeural, en-US-JennyNeural, en-AU-WilliamNeural)
+  - **Output:** `C:\devop\media\saas202548\tts-bakeoff\2025-12-26\` (30 MB, 7 WAV files)
+  - **SHA256 manifest:** Generated for file integrity verification
+  - **Status:** ✓ All voices synthesized successfully (0 errors)
+  - **Next:** Voice selection using Voice Decision Pack, then voice freeze
 - **2025-12-27**: Azure TTS naming compliance audit completed
   - Audit report: `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md`
   - Resource doc: `docs/ops/AZURE-TTS-RESOURCES.md` (provisioning commands with compliant names)
