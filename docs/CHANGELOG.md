@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.5] - 2025-12-27
+
+### Added
+- Voice selection frozen for Season 1
+  - `docs/production/AI-VOICE-FREEZE.md` - Canonical voice freeze record with change policy
+  - `tools/tts/tts.defaults.json` - Default voice configuration (Adam primary, Steffan fallback)
+  - `docs/ops/reports/voice-selection-freeze-2025-12-27.md` - Voice freeze evidence report
+
+### Changed
+- Updated `tools/tts/azure-speech-bakeoff.ps1` to load defaults from `tts.defaults.json`
+  - Reads default voices from JSON file when `-Voices` parameter not provided
+  - Maintains backwards compatibility with hard-coded defaults if file missing
+- Updated `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md` with final voice selection
+  - Primary: `en-US-Adam:DragonHDLatestNeural` (score: 18/20)
+  - Fallback: `en-US-Steffan:DragonHDLatestNeural` (score: 17/20)
+- Updated `STATUS.md` to mark voice freeze complete (v0.4.5)
+
+### Notes
+- **Status:** ✓ VOICE FROZEN for Season 1 Phase 1 (EP001–EP004)
+- **Primary voice:** en-US-Adam:DragonHDLatestNeural (warm, calm tone ideal for documentary format)
+- **Fallback voice:** en-US-Steffan:DragonHDLatestNeural (richer, more narrative quality)
+- **Verification:** ✓ PASSED (Adam synthesis successful, 4,096,450 bytes)
+- **Tooling:** Defaults now load automatically from tts.defaults.json
+- **Change policy:** Any voice change requires new bake-off + updated freeze record entry
+- **Next:** Asset pack templates, tracker, EP000 buffer
+
+---
+
 ## [v0.4.4] - 2025-12-27
 
 ### Added

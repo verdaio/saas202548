@@ -140,35 +140,36 @@ C:\devop\media\saas202548\tts-bakeoff\2025-12-27-hd\
 ## Decision Template
 
 ### Chosen Voice:
-**Voice Name:** [e.g., en-GB-RyanNeural]
+**Voice Name:** en-US-Adam:DragonHDLatestNeural
 
-**Accent:** [British/American/Australian]
+**Accent:** American
 
-**Gender:** [Male/Female]
+**Gender:** Male
 
-**Total Score:** [X/20]
+**Total Score:** 18/20
 
 **Decision Rationale (2-3 sentences):**
-[Why did you choose this voice? What were the key winning factors?]
+Adam delivers the most natural, calm narration with excellent clarity and consistent pacing. The voice has a warm, authoritative tone that fits the "sleepy documentary" format perfectly. Pronunciation of technical terms (UPS, ORION, large numbers) is clear and natural without sounding robotic.
 
 **Key Strengths:**
-- [Strength 1]
-- [Strength 2]
-- [Strength 3]
+- Warm, calm tone ideal for long-form listening (no fatigue factor)
+- Excellent pronunciation clarity on acronyms and numbers
+- Consistent delivery quality throughout the test excerpt
+- Natural prosody with SSML -5% rate adjustment
 
 **Known Limitations:**
-- [Limitation 1, if any]
-- [How you'll work around it]
+- None identified during bake-off testing
+- DragonHD voices require colon syntax in configs (`en-US-Adam:DragonHDLatestNeural`)
 
 ---
 
 ### Fallback Voice (Runner-Up):
-**Voice Name:** [e.g., en-GB-ThomasNeural]
+**Voice Name:** en-US-Steffan:DragonHDLatestNeural
 
-**Total Score:** [X/20]
+**Total Score:** 17/20
 
 **Fallback Rationale:**
-[Why this fallback? When would you use it instead of primary?]
+Steffan provides a slightly richer, more narrative quality that works well for storytelling. Use as fallback if Adam is unavailable or if a deeper, more resonant tone is needed for specific episodes. Both voices maintain the calm, documentary style required for the format.
 
 ---
 

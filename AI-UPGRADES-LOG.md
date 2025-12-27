@@ -14,6 +14,82 @@ Each entry includes:
 
 ---
 
+## [v0.4.5] - 2025-12-27
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-voice-freeze-adam-steffan-v1.md`
+
+### Changes
+**Operational Upgrade:** Voice selection frozen for Season 1 (Adam HD primary + Steffan HD fallback) + tooling integration
+
+**1. Voice Availability Confirmation:**
+- ✓ Confirmed both voices exist in eastus2 region
+- ✓ Authenticated API call via Key Vault credentials
+- `en-US-Adam:DragonHDLatestNeural` — FOUND
+- `en-US-Steffan:DragonHDLatestNeural` — FOUND
+
+**2. Decision Pack Updated:**
+- ✓ Filled decision template in `docs/production/AI-VOICE-DECISION-PACK-ep001-v1.md`
+- Primary: Adam (18/20) — warm, calm tone ideal for documentary format
+- Fallback: Steffan (17/20) — richer, more narrative quality
+- Key strengths: excellent pronunciation, consistent delivery, no fatigue factor
+
+**3. Voice Freeze Record Created:**
+- ✓ Created `docs/production/AI-VOICE-FREEZE.md`
+- Canonical freeze record with technical configuration
+- Change policy: any voice change requires new bake-off + updated freeze entry
+- Pronunciation rules documented (UPS, ORION)
+- Frozen for Season 1 Phase 1 (EP001–EP004)
+
+**4. Tooling Integration:**
+- ✓ Created `tools/tts/tts.defaults.json`:
+  - `defaultVoice`: `en-US-Adam:DragonHDLatestNeural`
+  - `fallbackVoice`: `en-US-Steffan:DragonHDLatestNeural`
+  - `defaultStyle`: `default`
+  - `defaultProsodyRate`: `-5%`
+- ✓ Updated `tools/tts/azure-speech-bakeoff.ps1`:
+  - Loads defaults from `tts.defaults.json` when `-Voices` not provided
+  - Maintains backwards compatibility if file missing
+  - Displays "Using default voices from tts.defaults.json" message
+
+**5. Verification Test:**
+- ✓ Single synthesis test with Adam successful
+- Command: `.\tools\tts\azure-speech-bakeoff.ps1 -SsmlPath 'content\production\ep001-tts-hd-bakeoff-ssml-v1.xml' -Voices @('en-US-Adam:DragonHDLatestNeural')`
+- Output: `C:\devop\media\saas202548\tts-bakeoff\voice-freeze-verification\ep001-excerpt__en-US-Adam-DragonHDLatestNeural__style-default.wav`
+- File size: 4,096,450 bytes
+- Filename format: ✓ Correct (colon replaced with hyphen)
+
+**6. Evidence Report:**
+- ✓ Created `docs/ops/reports/voice-selection-freeze-2025-12-27.md`
+- Complete documentation of freeze process
+- Verification results
+- Tooling changes
+- Explicit statement: no audio committed to git
+
+**7. Documentation Updates:**
+- Updated `STATUS.md`:
+  - Marked voice freeze complete
+  - Updated scaffold version to v0.4.5
+  - Added voice freeze note with details
+- Updated `docs/CHANGELOG.md` (v0.4.5)
+- Updated `AI-UPGRADES-LOG.md` (this file)
+
+### Verification
+- **Voice availability:** PASS (both voices confirmed in region)
+- **Defaults file created:** PASS (tts.defaults.json)
+- **Script enhanced:** PASS (loads defaults automatically)
+- **Verification test:** PASS (Adam synthesis successful, 4,096,450 bytes)
+- **Filename format:** PASS (no concatenation bug)
+- **Evidence report:** PASS (created with complete documentation)
+- **Docs updated:** PASS (4 files modified/created)
+
+**Next:** Asset pack templates, tracker, EP000 buffer
+
+---
+
 ## [v0.4.4] - 2025-12-27
 
 ### Agent

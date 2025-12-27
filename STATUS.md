@@ -8,7 +8,7 @@
 | **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
 | **Next Milestone** | Complete Setup Gate Prerequisites |
 | **Last Updated** | 2025-12-27 |
-| **Scaffold Version** | v0.4.4 |
+| **Scaffold Version** | v0.4.5 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
@@ -23,7 +23,7 @@
 - [ ] Setup Gate Prerequisites (6 items - see `docs/ops/SEASON-1-SETUP-GATE.md`)
   - [ ] Hardware gate test (video/audio/graphics export workflow)
   - [x] Azure Speech + Key Vault verified
-  - [ ] Voice bake-off done; voice frozen (**HD BAKE-OFF COMPLETE - 8 voices tested - awaiting voice selection**)
+  - [x] Voice bake-off done; voice frozen (**COMPLETE — Adam HD primary, Steffan HD fallback**)
   - [ ] Asset pack templates built and frozen
   - [ ] Tracker created and active (**IN PROGRESS**)
   - [ ] EP000 buffer meets Minimum Viable Pack definition
@@ -32,6 +32,15 @@
 - [ ] **Phase 3 (Weeks 9–20)**: Season completion (Logistics EP009–EP010, then Pillar B if gate passed)
 
 ### Notes
+- **2025-12-27**: Voice selection frozen for Season 1
+  - Freeze record: `docs/production/AI-VOICE-FREEZE.md`
+  - Evidence report: `docs/ops/reports/voice-selection-freeze-2025-12-27.md`
+  - **Primary voice:** `en-US-Adam:DragonHDLatestNeural` (score: 18/20)
+  - **Fallback voice:** `en-US-Steffan:DragonHDLatestNeural` (score: 17/20)
+  - **Tooling integration:** Created `tools/tts/tts.defaults.json` with frozen voices
+  - **Script enhancement:** Updated `tools/tts/azure-speech-bakeoff.ps1` to load defaults
+  - **Verification:** ✓ PASSED (Adam synthesis successful, 4,096,450 bytes)
+  - **Status:** ✓ Voice frozen for EP001–EP004 (Season 1 Phase 1)
 - **2025-12-27**: Azure TTS dev environment provisioning (COMPLETE - all operational)
   - Provisioning report: `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md`
   - **Resources created:**

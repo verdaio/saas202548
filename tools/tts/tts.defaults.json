@@ -1,0 +1,9 @@
+{
+  "defaultVoice": "en-US-Adam:DragonHDLatestNeural",
+  "fallbackVoice": "en-US-Steffan:DragonHDLatestNeural",
+  "defaultStyle": "default",
+  "defaultProsodyRate": "-5%",
+  "defaultOutputFormat": "riff-24khz-16bit-mono-pcm",
+  "region": "eastus2",
+  "vaultName": "kv-vrd-202548-dev-01"
+}

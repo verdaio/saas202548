@@ -55,23 +55,45 @@ param(
     [string]$VaultName = "kv-vrd-202548-dev-01",
 
     [Parameter()]
-    [string[]]$Voices = @(
-        # British male voices (primary candidates)
-        "en-GB-RyanNeural",
-        "en-GB-ThomasNeural",
-        "en-GB-AlfieNeural",
-
-        # Additional British male options
-        "en-GB-EthanNeural",
-        "en-GB-NoahNeural",
-
-        # Alternates (different accents for comparison)
-        "en-US-GuyNeural",
-        "en-AU-WilliamNeural"
-    )
+    [string[]]$Voices = @()
 )
 
 $ErrorActionPreference = "Stop"
+
+# Load defaults from tts.defaults.json if available and -Voices was not provided
+if ($Voices.Count -eq 0) {
+    $defaultsPath = Join-Path $PSScriptRoot "tts.defaults.json"
+    if (Test-Path $defaultsPath) {
+        try {
+            $defaults = Get-Content $defaultsPath -Raw | ConvertFrom-Json
+            $Voices = @($defaults.defaultVoice, $defaults.fallbackVoice)
+            Write-Host "Using default voices from tts.defaults.json" -ForegroundColor Cyan
+        } catch {
+            Write-Warning "Failed to load tts.defaults.json, using hard-coded defaults"
+            $Voices = @(
+                # Hard-coded fallback defaults (legacy)
+                "en-GB-RyanNeural",
+                "en-GB-ThomasNeural",
+                "en-GB-AlfieNeural",
+                "en-GB-EthanNeural",
+                "en-GB-NoahNeural",
+                "en-US-GuyNeural",
+                "en-AU-WilliamNeural"
+            )
+        }
+    } else {
+        # No defaults file, use hard-coded defaults for backwards compatibility
+        $Voices = @(
+            "en-GB-RyanNeural",
+            "en-GB-ThomasNeural",
+            "en-GB-AlfieNeural",
+            "en-GB-EthanNeural",
+            "en-GB-NoahNeural",
+            "en-US-GuyNeural",
+            "en-AU-WilliamNeural"
+        )
+    }
+}
 
 #region Helper Functions
 
