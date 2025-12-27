@@ -1,0 +1,35 @@
+# Brand Configuration
+# Source of truth for brand identity elements
+
+# Brand Identity (visual)
+brand_name: "Case Study Library"
+
+# Channel Identity (content positioning)
+channel_name: "Quiet Business Machines"
+
+# Tagline
+tagline: "TBD"  # Tagline to be defined
+
+# Logo Assets
+logo_pack_path: "docs/branding/assets/logo/selected/v1"
+logo_avatar_png: "docs/branding/assets/logo/selected/v1/png/icon/logo-avatar-square-800.png"
+logo_full_png: "docs/branding/assets/logo/selected/v1/png/full/logo-full-512.png"
+logo_favicon: "docs/branding/assets/logo/selected/v1/png/icon/favicon.ico"
+
+# Color Palette (to be defined)
+colors:
+  primary: null
+  secondary: null
+  accent: null
+  background: null
+  text: null
+
+# Typography (to be defined)
+fonts:
+  heading: null
+  body: null
+  mono: null
+
+# Documentation
+usage_guide: "docs/branding/assets/logo/selected/v1/docs/USAGE.md"
+assets_readme: "docs/branding/assets/README.md"

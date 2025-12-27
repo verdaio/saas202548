@@ -4,6 +4,14 @@
 
 A content operations repository for the **Quiet Business Machines** YouTube channel — calm, sleepy documentaries about the invisible systems, logistics, and operational mechanics behind how businesses actually work.
 
+## Season 1 Plan (Active)
+
+**[Season 1 Operational Hub](docs/season-1/README.md)** — 20 episodes @ 1/week (LOCKED plan v2)
+
+- **Current Phase:** Phase 0 — Setup gate
+- **Target:** 20 longform episodes, scope-based execution
+- **Status:** Planning complete, setup gate in progress
+
 ## What This Repo Is
 
 This is **not** a software application. It is an operational hub for:
@@ -103,3 +111,9 @@ Full verification evidence is in [`STATUS.md`](STATUS.md) under "Verification Ev
 - [`docs/content/CHANNEL-BRIEF.md`](docs/content/CHANNEL-BRIEF.md) - Channel positioning
 - [`docs/content/CONTENT-PIPELINE.md`](docs/content/CONTENT-PIPELINE.md) - Full workflow
 - [`docs/legal/POLICY-GUARDRAILS.md`](docs/legal/POLICY-GUARDRAILS.md) - Compliance rules
+- [`docs/branding/BRAND.md`](docs/branding/BRAND.md) - Brand guidelines and assets
+
+## Docs
+
+- [`docs/systemarium/systemarium-master-plan-design-workflow-v1.md`](docs/systemarium/systemarium-master-plan-design-workflow-v1.md) - Systemarium master plan, design, and workflow (v1)
+- [`docs/branding/assets/logo/selected/v1/docs/USAGE.md`](docs/branding/assets/logo/selected/v1/docs/USAGE.md) - Logo usage guidelines
