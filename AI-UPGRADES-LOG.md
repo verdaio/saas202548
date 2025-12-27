@@ -441,6 +441,7 @@ Claude Code (Claude Opus 4.5)
 
 ---
 
+
 ## [v0.3.0] - 2025-12-24
 
 ### Agent
@@ -503,6 +504,7 @@ Claude Code (Claude Opus 4.5)
 - No truncation or placeholder issues detected in source
 
 ---
+
 
 ## [v0.2.0] - 2025-12-24
 

@@ -194,6 +194,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+
 ## [v0.3.0] - 2025-12-24
 
 ### Added
@@ -221,6 +222,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added Docs section to README.md linking to master plan
 
 ---
+
 
 ## [v0.2.0] - 2025-12-24
 
