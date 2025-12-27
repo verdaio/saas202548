@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.1] - 2025-12-27
+
+### Added
+- Azure TTS naming compliance audit
+  - `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md` - Comprehensive naming audit report
+  - `docs/ops/AZURE-TTS-RESOURCES.md` - Azure TTS resource documentation with provisioning commands
+- Canonical Azure Naming Standard located in template system
+  - Standard: `C:\devop\new-template-system\.template-system-v2\docs\security\AZURE-NAMING-CONVENTIONS.md` (v1.2)
+  - Verdaio pattern: `{type}-{org}-{proj}-{env}-{region}-{slice}-{seq}`
+
+### Changed
+- Proposed Azure resource names updated to comply with Verdaio naming standard
+  - Resource Group: `rg-saas202548-prodops` → `rg-vrd-202548-dev-eus2`
+  - Key Vault: `kv-saas202548-prodops` → `kv-vrd-202548-dev-01`
+  - Speech Service: `spch-saas202548-prodops` → `cog-vrd-202548-dev-eus2-01`
+
+### Notes
+- No Azure resources exist yet for project 202548 (previously proposed names were blocked by auth issue)
+- No migration needed; resources can be created with compliant names from the start
+- Speech Service abbreviation (`cog` for Cognitive Services) inferred from standard (not explicitly defined)
+- Recommended to update `tools/tts/azure-speech-bakeoff.ps1` with compliant Key Vault name before provisioning
+- Template system propagation recommended: add Cognitive Services and App Insights abbreviations to naming standard
+
+---
+
 ## [v0.4.0] - 2025-12-26
 
 ### Added

@@ -7,8 +7,8 @@
 |--------|-------|
 | **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
 | **Next Milestone** | Complete Setup Gate Prerequisites |
-| **Last Updated** | 2025-12-26 |
-| **Scaffold Version** | v0.4.0 |
+| **Last Updated** | 2025-12-27 |
+| **Scaffold Version** | v0.4.1 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
@@ -32,6 +32,19 @@
 - [ ] **Phase 3 (Weeks 9–20)**: Season completion (Logistics EP009–EP010, then Pillar B if gate passed)
 
 ### Notes
+- **2025-12-27**: Azure TTS naming compliance audit completed
+  - Audit report: `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md`
+  - Resource doc: `docs/ops/AZURE-TTS-RESOURCES.md` (provisioning commands with compliant names)
+  - **Finding:** No Azure resources exist for project 202548 (previously proposed names were blocked by auth)
+  - **Standard found:** Verdaio Azure Naming Standard v1.2 in template system
+  - **Non-compliant proposed names:** `rg-saas202548-prodops`, `kv-saas202548-prodops`, `spch-saas202548-prodops`
+  - **Compliant names proposed:**
+    - Resource Group: `rg-vrd-202548-dev-eus2`
+    - Key Vault: `kv-vrd-202548-dev-01`
+    - Speech Service: `cog-vrd-202548-dev-eus2-01`
+  - **No migration needed:** Resources can be created with compliant names from the start
+  - **Recommendation:** Update `tools/tts/azure-speech-bakeoff.ps1` with compliant Key Vault name before provisioning
+  - **Template system propagation:** Add Cognitive Services (`cog`) abbreviation to naming standard
 - **2025-12-26**: Season 1 Plan v2 adopted as operational source-of-truth
   - **Plan file:** `docs/season-1/SEASON-1-PLAN-COMPLETE-v2.md` (LOCKED)
   - **Operational hub:** `docs/season-1/README.md` (quick links to all Season 1 artifacts)

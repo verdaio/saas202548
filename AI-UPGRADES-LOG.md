@@ -14,6 +14,109 @@ Each entry includes:
 
 ---
 
+## [v0.4.1] - 2025-12-27
+
+### Agent
+Claude Code (Claude Sonnet 4.5)
+
+### Prompt Reference
+`cc-saas202548-azure-tts-naming-audit-v1.md`
+
+### Changes
+**Operational Upgrade:** Azure TTS naming compliance audit with canonical standard discovery
+
+**1. Canonical Naming Standard Discovery:**
+- Located authoritative Azure Naming Standard in template system:
+  - Path: `C:\devop\new-template-system\.template-system-v2\docs\security\AZURE-NAMING-CONVENTIONS.md`
+  - Version: 1.2 (Last Updated: 2025-12-08)
+  - Verdaio standard pattern: `{type}-{org}-{proj}-{env}-{region}-{slice}-{seq}`
+- Key tokens for saas202548:
+  - `{org}`: `vrd` (Verdaio)
+  - `{proj}`: `202548` (extracted from projectID last 6 chars)
+  - `{env}`: `dev`, `stg`, `prd`
+  - `{region}`: `eus2` (East US 2), etc.
+
+**2. Azure Resource Inventory:**
+- Discovered NO Azure resources exist for project 202548 (confirmed via Azure CLI)
+- Previously proposed names from phase0 report (2025-12-26) were never created (blocked by auth issue)
+- Resource discovery commands:
+  - `az group list` — No resource groups with "202548"
+  - `az cognitiveservices account list` — No Speech Services
+  - `az keyvault list` — No Key Vaults with "202548"
+
+**3. Compliance Audit:**
+- Audited proposed names from phase0 report against Verdaio standard
+- **Finding:** All proposed names NON-COMPLIANT
+  - `rg-saas202548-prodops` — Missing org, using full projectID, non-standard env, missing region
+  - `kv-saas202548-prodops` — Same issues + missing sequence number
+  - `spch-saas202548-prodops` — Same issues + non-standard abbreviation
+- **Root Cause:** Proposed names do not follow Verdaio Azure Naming Standard v1.2
+
+**4. Compliant Naming Proposal:**
+- Proposed compliant names for dev environment (East US 2):
+  - Resource Group: `rg-vrd-202548-dev-eus2`
+  - Key Vault: `kv-vrd-202548-dev-01` (20 chars, within 24 char limit)
+  - Speech Service: `cog-vrd-202548-dev-eus2-01` (using `cog` for Cognitive Services)
+- Defined compliant tags (Org, Project, Environment, Owner, CostCenter, CreatedDate)
+- Included stg/prd environment naming proposals (optional)
+
+**5. Documentation Created:**
+- `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md` — Comprehensive audit report with:
+  - Naming standard discovery section
+  - Azure resource inventory (current state: none)
+  - Compliance analysis (proposed names vs standard)
+  - Compliant naming proposal (dev/stg/prd environments)
+  - Migration plan (NOT REQUIRED — no resources exist)
+  - Speech Service abbreviation recommendation (`cog`)
+  - Resource inventory table
+  - Verification evidence (CLI commands and outputs)
+  - Template system propagation recommendation
+- `docs/ops/AZURE-TTS-RESOURCES.md` — Azure TTS resource documentation with:
+  - Overview and related docs
+  - Dev environment resource definitions (RG, Speech, Key Vault)
+  - Provisioning commands with compliant names and tags
+  - Key Vault secret management (azure-speech-key, azure-speech-region)
+  - Key rotation procedure
+  - TTS health verification commands
+  - Optional resources (Storage, Log Analytics, App Insights)
+  - Stg/prd environment naming (optional)
+  - Cost monitoring guidance
+  - Troubleshooting section
+- Updated `docs/CHANGELOG.md` (v0.4.1)
+- Updated `AI-UPGRADES-LOG.md` (this file)
+
+**6. Key Recommendations:**
+- Update `tools/tts/azure-speech-bakeoff.ps1` default `-VaultName` from `kv-saas202548-prodops` to `kv-vrd-202548-dev-01`
+- Provision Azure resources with compliant names (after approval)
+- Propagate to template system: Add Cognitive Services (`cog`) and App Insights (`appi`) abbreviations to `AZURE-NAMING-CONVENTIONS.md`
+
+### Verification
+- **Preflight checks:** PASS (git clean, Azure CLI authenticated, subscription verified)
+- **Naming standard found:** PASS (canonical standard located in template system)
+- **Resource inventory:** PASS (confirmed no 202548 resources exist)
+- **Compliance audit:** PASS (proposed names audited, non-compliance identified)
+- **Compliant names proposed:** PASS (dev/stg/prd naming proposals validated)
+- **Documentation created:** PASS (audit report + resource doc)
+- **Logs updated:** PASS (CHANGELOG, AI-UPGRADES-LOG)
+
+### Key Outcomes
+- **No migration needed:** Resources can be created with compliant names from the start
+- **Naming compliance:** All proposed names aligned to Verdaio Azure Naming Standard v1.2
+- **Documentation complete:** Comprehensive audit report + operational resource doc
+- **Provisioning ready:** Commands prepared for compliant Azure resource creation
+- **Template system improvement identified:** Cognitive Services and App Insights abbreviations should be added to standard
+
+### Next Actions
+1. Approve compliant naming scheme (dev environment)
+2. Approve Speech Service abbreviation (`cog`)
+3. Update `tools/tts/azure-speech-bakeoff.ps1` with compliant Key Vault name
+4. Provision Azure resources with compliant names (RG, Speech Service, Key Vault)
+5. Store secrets in Key Vault (azure-speech-key, azure-speech-region)
+6. Run bake-off runner to test TTS
+7. (Optional) Propagate `cog` and `appi` abbreviations to template system naming standard
+
+---
+
 ## [v0.4.0] - 2025-12-26
 
 ### Agent
