@@ -2,7 +2,7 @@
 ## Case Study Library (saas202548)
 
 **Last Updated:** 2025-12-27
-**Status:** PARTIAL PROVISIONING (resources created; manual RBAC assignment required)
+**Status:** ✓ PROVISIONING COMPLETE (all resources operational; smoke test passed)
 **Standard:** Verdaio Azure Naming Standard v1.2
 **Provisioning Report:** [azure-tts-provision-dev-2025-12-27.md](reports/azure-tts-provision-dev-2025-12-27.md)
 
@@ -92,7 +92,7 @@ az cognitiveservices account show \
 **Name:** `kv-vrd-202548-dev-01`
 **Authorization:** RBAC-enabled (no access policies)
 **Location:** East US 2 (`eastus2`)
-**Status:** ✓ Created (2025-12-27); ⚠ RBAC role assignment pending (manual)
+**Status:** ✓ Created (2025-12-27); ✓ RBAC role assigned; ✓ Secrets stored
 **URI:** `https://kv-vrd-202548-dev-01.vault.azure.net/`
 **Note:** Region omitted from name due to 24-character limit (per standard)
 
@@ -125,6 +125,9 @@ az role assignment create \
 **Secret Names:**
 - `azure-speech-key` — Azure Speech API key (primary)
 - `azure-speech-region` — Azure region code (e.g., `eastus2`)
+- `azure-speech-endpoint` — TTS endpoint URL (e.g., `https://eastus2.tts.speech.microsoft.com`)
+
+**Status:** ✓ All secrets stored (2025-12-27)
 
 **Storage Procedure:**
 ```bash
@@ -144,6 +147,11 @@ az keyvault secret set \
   --vault-name kv-vrd-202548-dev-01 \
   --name azure-speech-region \
   --value "eastus2"
+
+az keyvault secret set \
+  --vault-name kv-vrd-202548-dev-01 \
+  --name azure-speech-endpoint \
+  --value "https://eastus2.tts.speech.microsoft.com"
 ```
 
 **Retrieval (for automation):**
@@ -399,5 +407,6 @@ az role assignment create \
 | Date | Change | Author |
 |------|--------|--------|
 | 2025-12-27 | Initial documentation (pre-provisioning) | Claude Code |
+| 2025-12-27 | Updated to reflect provisioning completion (resources created, RBAC assigned, secrets stored, smoke test passed) | Claude Code |
 
 ---

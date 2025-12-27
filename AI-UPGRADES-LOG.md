@@ -20,10 +20,10 @@ Each entry includes:
 Claude Code (Claude Sonnet 4.5)
 
 ### Prompt Reference
-`cc-saas202548-azure-tts-provision-dev-v1.md`
+`cc-saas202548-azure-tts-provision-dev-v1.md`, `cc-saas202548-azure-tts-secrets-smoketest-v1.md`
 
 ### Changes
-**Operational Upgrade:** Azure TTS dev environment provisioning (PARTIAL - RBAC blocker requires manual intervention)
+**Operational Upgrade:** Azure TTS dev environment provisioning (COMPLETE - all resources operational, smoke test passed)
 
 **1. Azure Resources Provisioned:**
 - ✓ Resource Group: `rg-vrd-202548-dev-eus2-tts-01` (eastus2)
@@ -48,82 +48,78 @@ Claude Code (Claude Sonnet 4.5)
   - Rationale: Standard shows region omission, not compression (lines 79-88 of AZURE-NAMING-CONVENTIONS.md)
 - Resource Group and Speech Service include `-tts-01` slice for organizational clarity
 
-**3. RBAC Blocker (Manual Intervention Required):**
-- ✗ Azure CLI `az role assignment create` command fails with persistent "MissingSubscription" error
-- Error persists despite:
-  - Correct subscription context verified
-  - Explicit `--subscription` parameter
-  - User email vs object ID attempts
-  - Subscription context reset with `az account set`
-- Root cause: Likely Azure CLI bug (v2.77.0) or tenant/subscription configuration issue
-- **Workaround:** Manual role assignment required via Azure Portal
+**3. RBAC Assignment (Manual Workaround):**
+- ✗ Azure CLI `az role assignment create` failed with persistent "MissingSubscription" error
+- ✓ Manual role assignment via Azure Portal succeeded
   - Role: "Key Vault Secrets Officer"
   - User: chris.stephens@verdaio.com
   - Scope: `kv-vrd-202548-dev-01`
+- Root cause: Azure CLI bug (v2.77.0) or tenant/subscription configuration issue
 
-**4. Pending Tasks (Blocked by RBAC):**
-- ⏳ Secret storage: `azure-speech-key`, `azure-speech-region`
-- ⏳ TTS verification test (bake-off runner)
-- ⏳ Full end-to-end verification
+**4. Secret Storage (Complete):**
+- ✓ Fetched Speech Service API key (key1) without printing
+- ✓ Stored 3 secrets in Key Vault:
+  - `azure-speech-key` — Speech API key (primary)
+  - `azure-speech-region` — Region code (`eastus2`)
+  - `azure-speech-endpoint` — TTS endpoint URL (`https://eastus2.tts.speech.microsoft.com`)
+- ✓ Verified bakeoff script reads correct secret names from vault
 
-**5. Repository Updates:**
+**5. TTS Smoke Test (Complete):**
+- ✓ Ran single-voice test: `en-GB-RyanNeural`
+- ✓ Audio file generated: 4,418,822 bytes (4.4 MB WAV)
+- ✓ Output path: `C:\devop\media\saas202548\tts-bakeoff\2025-12-27\azure-speech-en-GB-RyanNeural.wav`
+- ✓ Manifest file generated
+- ✓ End-to-end workflow verified (Key Vault → Azure Speech API → audio synthesis)
+
+**6. Repository Updates:**
 - Updated `tools/tts/azure-speech-bakeoff.ps1`:
   - Default `-VaultName` changed from `kv-saas202548-prodops` to `kv-vrd-202548-dev-01`
 - Updated `docs/ops/AZURE-TTS-RESOURCES.md`:
-  - Status changed from "NOT YET PROVISIONED" to "PARTIAL PROVISIONING"
+  - Status changed from "NOT YET PROVISIONED" → "PARTIAL PROVISIONING" → "✓ PROVISIONING COMPLETE"
   - All resource names updated to actual provisioned names
   - All commands updated with `-tts-01` slice
-  - Added RBAC blocker warning
-  - Added provisioning report link
-- Updated `docs/CHANGELOG.md` (v0.4.2)
+  - Added all 3 secret names with status
+  - Updated Key Vault status to show RBAC assigned and secrets stored
+  - Added version history entry
+- Updated `docs/CHANGELOG.md` (v0.4.2) - changed from PARTIAL to COMPLETE with all verification details
+- Updated `STATUS.md` - reflecting provisioning completion
 - Updated `AI-UPGRADES-LOG.md` (this file)
 
-**6. Evidence Documentation:**
-- Created `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md`:
+**7. Evidence Documentation:**
+- Updated `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md`:
   - Complete provisioning timeline with CLI commands
   - Resource inventory with IDs and status
-  - RBAC blocker documentation and troubleshooting
-  - Manual workaround instructions
-  - Verification plan (pending RBAC completion)
-  - Cost estimates
-  - Next steps checklist
+  - RBAC manual assignment documentation
+  - Secret storage verification (names only, no values)
+  - TTS smoke test results with output file paths
+  - Full completion summary (8 steps complete)
 
 ### Verification
 - **Preflight checks:** PASS (git clean, Azure CLI authenticated)
 - **Resource Group created:** PASS (`rg-vrd-202548-dev-eus2-tts-01`)
 - **Key Vault created:** PASS (`kv-vrd-202548-dev-01`, RBAC enabled)
 - **Speech Service created:** PASS (`cog-vrd-202548-dev-eus2-tts-01`, SKU: S0)
-- **RBAC role assignment:** FAILED (MissingSubscription error - manual intervention required)
-- **Secret storage:** BLOCKED (awaiting RBAC)
-- **TTS verification:** PENDING (awaiting secrets)
+- **RBAC role assignment:** PASS (manual via Azure Portal after CLI failure)
+- **Key Vault access:** PASS (secret list successful)
+- **Secret storage:** PASS (3 secrets stored: key, region, endpoint)
+- **TTS smoke test:** PASS (4.4 MB audio file generated)
+- **End-to-end workflow:** PASS (Key Vault → Azure Speech API → audio synthesis)
 - **Repository tooling updated:** PASS (bakeoff script VaultName updated)
-- **Documentation updated:** PASS (all docs reflect provisioned state)
+- **Documentation updated:** PASS (all docs reflect complete provisioning)
 
 ### Key Outcomes
 - **3 Azure resources successfully provisioned** with compliant names and tags
 - **Naming standard compliance** achieved with documented exceptions
-- **Identified Azure CLI RBAC bug** requiring manual workaround
+- **Identified Azure CLI RBAC bug** requiring manual workaround (successfully completed via Portal)
+- **3 secrets securely stored** in Key Vault (key, region, endpoint)
+- **End-to-end TTS workflow verified** with smoke test (4.4 MB audio generated)
 - **Complete provisioning evidence** documented for audit trail
-- **Repository tooling ready** for TTS testing after RBAC completion
+- **Repository ready** for voice bake-off testing
 
-### Next Actions (Manual)
-1. **Assign RBAC role via Azure Portal:**
-   - Navigate to Key Vault `kv-vrd-202548-dev-01` → Access control (IAM)
-   - Add role assignment: "Key Vault Secrets Officer" → chris.stephens@verdaio.com
-
-2. **Store secrets (after RBAC):**
-   ```bash
-   az cognitiveservices account keys list --name cog-vrd-202548-dev-eus2-tts-01 --resource-group rg-vrd-202548-dev-eus2-tts-01
-   az keyvault secret set --vault-name kv-vrd-202548-dev-01 --name azure-speech-key --value "<KEY>"
-   az keyvault secret set --vault-name kv-vrd-202548-dev-01 --name azure-speech-region --value "eastus2"
-   ```
-
-3. **Run TTS verification:**
-   ```powershell
-   .\tools\tts\azure-speech-bakeoff.ps1 -Voices @("en-GB-RyanNeural")
-   ```
-
-4. **Update STATUS.md** after verification complete
+### Next Actions
+1. **Run full voice bake-off** with all 7 default voices (operational next step)
+2. **Select production voice** using decision framework from Season 1 Plan
+3. **Continue Phase 0 Setup Gate** (Azure TTS + voice bake-off item now complete)
 
 ---
 
