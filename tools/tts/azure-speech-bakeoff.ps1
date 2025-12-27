@@ -45,7 +45,7 @@ param(
     [string]$OutDir = "C:\devop\media\saas202548\tts-bakeoff\2025-12-26",
 
     [Parameter()]
-    [string]$VaultName = "kv-saas202548-prodops",
+    [string]$VaultName = "kv-vrd-202548-dev-01",
 
     [Parameter()]
     [string[]]$Voices = @(

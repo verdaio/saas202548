@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v0.4.2] - 2025-12-27
+
+### Added
+- Azure TTS dev environment provisioning (partial)
+  - `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md` - Provisioning evidence report with RBAC blocker documentation
+  - ✓ Resource Group: `rg-vrd-202548-dev-eus2-tts-01` (created)
+  - ✓ Key Vault: `kv-vrd-202548-dev-01` (created with RBAC)
+  - ✓ Speech Service: `cog-vrd-202548-dev-eus2-tts-01` (created, SKU: S0)
+
+### Changed
+- Updated `tools/tts/azure-speech-bakeoff.ps1` default Key Vault name: `kv-saas202548-prodops` → `kv-vrd-202548-dev-01`
+- Updated `docs/ops/AZURE-TTS-RESOURCES.md` with actual provisioned resource names and status
+
+### Notes
+- **Status:** PARTIAL PROVISIONING - Resources created successfully
+- **Blocker:** Azure CLI `az role assignment create` fails with "MissingSubscription" error (persistent across multiple attempts)
+- **Manual intervention required:** Assign "Key Vault Secrets Officer" role via Azure Portal to chris.stephens@verdaio.com for `kv-vrd-202548-dev-01`
+- **Pending:** Secret storage (azure-speech-key, azure-speech-region) awaits RBAC role assignment
+- **Pending:** TTS verification test awaits secret storage
+- All resources follow Verdaio Azure Naming Standard v1.2 with documented exceptions (Key Vault region omission for 24-char limit)
+- `-tts-01` slice added to Resource Group and Speech Service names for clarity
+
+---
+
 ## [v0.4.1] - 2025-12-27
 
 ### Added

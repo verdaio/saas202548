@@ -8,7 +8,7 @@
 | **Current Stage** | Phase 0 — Setup Gate (Season 1 Plan v2 Adopted) |
 | **Next Milestone** | Complete Setup Gate Prerequisites |
 | **Last Updated** | 2025-12-27 |
-| **Scaffold Version** | v0.4.1 |
+| **Scaffold Version** | v0.4.2 |
 | **Brand Name** | Case Study Library |
 | **Channel Name** | Quiet Business Machines |
 | **Season 1 Plan** | v2 (LOCKED — 20 episodes @ 1/week) |
@@ -32,6 +32,24 @@
 - [ ] **Phase 3 (Weeks 9–20)**: Season completion (Logistics EP009–EP010, then Pillar B if gate passed)
 
 ### Notes
+- **2025-12-27**: Azure TTS dev environment provisioning (PARTIAL - manual RBAC required)
+  - Provisioning report: `docs/ops/reports/azure-tts-provision-dev-2025-12-27.md`
+  - **Resources created:**
+    - ✓ Resource Group: `rg-vrd-202548-dev-eus2-tts-01` (eastus2)
+    - ✓ Key Vault: `kv-vrd-202548-dev-01` (eastus2, RBAC enabled)
+    - ✓ Speech Service: `cog-vrd-202548-dev-eus2-tts-01` (SKU: S0)
+  - **Blocker:** Azure CLI RBAC role assignment fails with "MissingSubscription" error
+  - **Manual intervention required:**
+    - Assign "Key Vault Secrets Officer" role via Azure Portal
+    - User: chris.stephens@verdaio.com
+    - Resource: kv-vrd-202548-dev-01
+  - **Pending (after RBAC):**
+    - Store secrets: azure-speech-key, azure-speech-region
+    - Run TTS verification test (bake-off runner)
+  - **Repository updates:**
+    - Updated `tools/tts/azure-speech-bakeoff.ps1` VaultName → `kv-vrd-202548-dev-01`
+    - Updated `docs/ops/AZURE-TTS-RESOURCES.md` with provisioned resource details
+  - All resources follow Verdaio Azure Naming Standard v1.2
 - **2025-12-27**: Azure TTS naming compliance audit completed
   - Audit report: `docs/ops/reports/azure-tts-naming-audit-2025-12-27.md`
   - Resource doc: `docs/ops/AZURE-TTS-RESOURCES.md` (provisioning commands with compliant names)

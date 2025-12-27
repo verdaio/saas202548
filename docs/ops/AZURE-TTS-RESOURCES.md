@@ -2,8 +2,9 @@
 ## Case Study Library (saas202548)
 
 **Last Updated:** 2025-12-27
-**Status:** NOT YET PROVISIONED (awaiting naming standard approval)
+**Status:** PARTIAL PROVISIONING (resources created; manual RBAC assignment required)
 **Standard:** Verdaio Azure Naming Standard v1.2
+**Provisioning Report:** [azure-tts-provision-dev-2025-12-27.md](reports/azure-tts-provision-dev-2025-12-27.md)
 
 ---
 
@@ -22,9 +23,10 @@ This document defines the Azure infrastructure for Text-to-Speech (TTS) producti
 
 ### Resource Group
 
-**Name:** `rg-vrd-202548-dev-eus2`
+**Name:** `rg-vrd-202548-dev-eus2-tts-01`
 **Location:** East US 2 (`eastus2`)
-**Status:** Not yet created
+**Status:** ✓ Created (2025-12-27)
+**Note:** Includes `-tts-01` slice for TTS-specific resources
 
 **Tags:**
 - `Org`: `vrd`
@@ -37,22 +39,23 @@ This document defines the Azure infrastructure for Text-to-Speech (TTS) producti
 **Provisioning Command:**
 ```bash
 az group create \
-  --name rg-vrd-202548-dev-eus2 \
+  --name rg-vrd-202548-dev-eus2-tts-01 \
   --location eastus2 \
   --tags Org=vrd Project=202548 Environment=development \
          Owner=chris.stephens@verdaio.com CostCenter=202548-llc \
-         CreatedDate=$(date +%Y-%m-%d)
+         CreatedDate=2025-12-27
 ```
 
 ---
 
 ### Azure Speech Service (Cognitive Services)
 
-**Name:** `cog-vrd-202548-dev-eus2-01`
+**Name:** `cog-vrd-202548-dev-eus2-tts-01`
 **Kind:** `SpeechServices`
 **SKU:** `S0` (Standard)
 **Location:** East US 2 (`eastus2`)
-**Status:** Not yet created
+**Status:** ✓ Created (2025-12-27)
+**Note:** Includes `-tts-01` slice for clarity
 
 **Endpoint:** `https://eastus2.api.cognitive.microsoft.com/`
 **TTS Endpoint:** `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1`
@@ -62,22 +65,23 @@ az group create \
 **Provisioning Command:**
 ```bash
 az cognitiveservices account create \
-  --name cog-vrd-202548-dev-eus2-01 \
-  --resource-group rg-vrd-202548-dev-eus2 \
+  --name cog-vrd-202548-dev-eus2-tts-01 \
+  --resource-group rg-vrd-202548-dev-eus2-tts-01 \
   --kind SpeechServices \
   --sku S0 \
   --location eastus2 \
+  --yes \
   --tags Org=vrd Project=202548 Environment=development \
          Owner=chris.stephens@verdaio.com CostCenter=202548-llc \
-         CreatedDate=$(date +%Y-%m-%d)
+         CreatedDate=2025-12-27
 ```
 
 **Verification:**
 ```bash
 az cognitiveservices account show \
-  --name cog-vrd-202548-dev-eus2-01 \
-  --resource-group rg-vrd-202548-dev-eus2 \
-  --query "{name:name, kind:kind, sku:sku.name, location:location, endpoint:properties.endpoint}" \
+  --name cog-vrd-202548-dev-eus2-tts-01 \
+  --resource-group rg-vrd-202548-dev-eus2-tts-01 \
+  --query "{name:name, kind:kind, sku:sku.name, location:location, ttsEndpoint:properties.endpoints.\"Speech Services Text to Speech (Neural)\"}" \
   -o table
 ```
 
@@ -88,7 +92,9 @@ az cognitiveservices account show \
 **Name:** `kv-vrd-202548-dev-01`
 **Authorization:** RBAC-enabled (no access policies)
 **Location:** East US 2 (`eastus2`)
-**Status:** Not yet created
+**Status:** ✓ Created (2025-12-27); ⚠ RBAC role assignment pending (manual)
+**URI:** `https://kv-vrd-202548-dev-01.vault.azure.net/`
+**Note:** Region omitted from name due to 24-character limit (per standard)
 
 **Tags:** Same as Resource Group
 
@@ -96,12 +102,12 @@ az cognitiveservices account show \
 ```bash
 az keyvault create \
   --name kv-vrd-202548-dev-01 \
-  --resource-group rg-vrd-202548-dev-eus2 \
+  --resource-group rg-vrd-202548-dev-eus2-tts-01 \
   --location eastus2 \
   --enable-rbac-authorization true \
   --tags Org=vrd Project=202548 Environment=development \
          Owner=chris.stephens@verdaio.com CostCenter=202548-llc \
-         CreatedDate=$(date +%Y-%m-%d)
+         CreatedDate=2025-12-27
 ```
 
 **RBAC Role Assignment (for current user):**
@@ -124,11 +130,11 @@ az role assignment create \
 ```bash
 # Retrieve Speech API keys
 SPEECH_KEY=$(az cognitiveservices account keys list \
-  --name cog-vrd-202548-dev-eus2-01 \
-  --resource-group rg-vrd-202548-dev-eus2 \
+  --name cog-vrd-202548-dev-eus2-tts-01 \
+  --resource-group rg-vrd-202548-dev-eus2-tts-01 \
   --query "key1" -o tsv)
 
-# Store in Key Vault
+# Store in Key Vault (requires RBAC role assignment)
 az keyvault secret set \
   --vault-name kv-vrd-202548-dev-01 \
   --name azure-speech-key \
@@ -170,16 +176,16 @@ az keyvault secret show \
 1. **Generate new key in Azure:**
    ```bash
    az cognitiveservices account keys regenerate \
-     --name cog-vrd-202548-dev-eus2-01 \
-     --resource-group rg-vrd-202548-dev-eus2 \
+     --name cog-vrd-202548-dev-eus2-tts-01 \
+     --resource-group rg-vrd-202548-dev-eus2-tts-01 \
      --key-name Key2
    ```
 
 2. **Update Key Vault secret:**
    ```bash
    NEW_KEY=$(az cognitiveservices account keys list \
-     --name cog-vrd-202548-dev-eus2-01 \
-     --resource-group rg-vrd-202548-dev-eus2 \
+     --name cog-vrd-202548-dev-eus2-tts-01 \
+     --resource-group rg-vrd-202548-dev-eus2-tts-01 \
      --query "key2" -o tsv)
 
    az keyvault secret set \
@@ -196,8 +202,8 @@ az keyvault secret show \
 4. **Regenerate old key (Key1) after verification:**
    ```bash
    az cognitiveservices account keys regenerate \
-     --name cog-vrd-202548-dev-eus2-01 \
-     --resource-group rg-vrd-202548-dev-eus2 \
+     --name cog-vrd-202548-dev-eus2-tts-01 \
+     --resource-group rg-vrd-202548-dev-eus2-tts-01 \
      --key-name Key1
    ```
 
